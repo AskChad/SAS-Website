@@ -179,11 +179,14 @@
 
         /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
+            padding: 140px 0 100px;
             background: var(--gradient-hero);
             position: relative;
             overflow: hidden;
             text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
@@ -208,14 +211,16 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-dark);
-            padding: 8px 16px;
-            border-radius: 25px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 50px;
             font-size: 14px;
             color: var(--accent-cyan);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             backdrop-filter: var(--backdrop-blur);
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
         }
 
         /* Avatar styles for social proof */
@@ -239,7 +244,7 @@
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
@@ -247,16 +252,21 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.025em;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-subtitle {
-            font-size: 24px;
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
             color: var(--text-light);
-            margin-bottom: 40px;
-            max-width: 700px;
+            margin-bottom: 48px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-weight: 400;
         }
 
         .hero-ctas {
@@ -957,8 +967,13 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
+            .hero {
+                padding: 100px 0 80px;
+                min-height: 70vh;
+            }
+            
             .hero h1 {
-                font-size: 48px;
+                font-size: clamp(2rem, 4vw, 2.8rem);
             }
 
             .features-content {
@@ -977,15 +992,24 @@
             }
 
             .hero {
-                padding: 100px 0 60px;
+                padding: 80px 0 60px;
+                min-height: 60vh;
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: clamp(1.75rem, 6vw, 2.2rem);
+                margin-bottom: 20px;
             }
 
             .hero-subtitle {
-                font-size: 18px;
+                font-size: clamp(1rem, 3vw, 1.125rem);
+                margin-bottom: 40px;
+            }
+
+            .hero-badge {
+                font-size: 13px;
+                padding: 8px 16px;
+                margin-bottom: 32px;
             }
 
             .hero-ctas {
@@ -1640,15 +1664,15 @@
             </p>
 
             <div class="social-proof">
-                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 32px;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 40px;">
                     <div style="display: flex;">
                         <div class="avatar">S</div>
                         <div class="avatar">M</div>
                         <div class="avatar">J</div>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <div style="display: flex; color: #fbbf24; font-size: 14px;">⭐⭐⭐⭐⭐</div>
-                        <span style="color: var(--text-gray); font-size: 14px;">4.9/5 (127 reviews)</span>
+                        <div style="display: flex; color: #fbbf24; font-size: 16px;">⭐⭐⭐⭐⭐</div>
+                        <span style="color: var(--text-gray); font-size: 14px; font-weight: 500;">4.9/5 (127 reviews)</span>
                     </div>
                 </div>
 
@@ -1690,11 +1714,11 @@
             </div>
 
             <!-- Company Logo Integration -->
-            <div class="company-branding" style="margin-top: 48px;">
+            <div class="company-branding" style="margin-top: 48px; text-align: center;">
                 <img src="https://www.simpleaccelerationsystems.com/wp-content/uploads/2023/08/Untitled-1500-x-600-px-1500-x-1500-px-150-x-150-px.png" alt="Simple Acceleration Systems" class="hero-logo">
-                <div class="company-tagline">
+                <div class="company-tagline" style="text-align: center;">
                     <span class="company-name">Simple Acceleration Systems</span>
-                    <span class="social-proof-text">Scott@simpleaccelerationsystems.com • (678) 855-8576</span>
+                    <span class="social-proof-text" style="text-align: center; display: block;">Scott@simpleaccelerationsystems.com • (678) 855-8576</span>
                 </div>
             </div>
         </div>
@@ -2280,11 +2304,26 @@
                         <li><a href="mailto:scott@simpleaccelerationsystems.com">scott@simpleaccelerationsystems.com</a></li>
                         <li><a href="#" class="quiz-trigger">🚀 Start Free Assessment</a></li>
                     </ul>
+                    
+                    <div style="margin-top: 24px;">
+                        <h4 style="margin-bottom: 16px;">Follow Us</h4>
+                        <div style="display: flex; gap: 12px; justify-content: flex-start;">
+                            <!-- Update these links with actual social media URLs -->
+                            <a href="#" style="color: var(--text-gray); text-decoration: none; font-size: 20px;" title="Facebook">📘</a>
+                            <a href="#" style="color: var(--text-gray); text-decoration: none; font-size: 20px;" title="LinkedIn">💼</a>
+                            <a href="#" style="color: var(--text-gray); text-decoration: none; font-size: 20px;" title="Twitter">🐦</a>
+                            <a href="#" style="color: var(--text-gray); text-decoration: none; font-size: 20px;" title="Instagram">📸</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 © 2025 Simple Acceleration Systems. All rights reserved. • Transforming businesses with AI automation since 2024.
+                <div style="margin-top: 12px;">
+                    <a href="https://goldmineaisystem.pro/privacy" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
+                    <a href="https://goldmineaisystem.pro/terms" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
