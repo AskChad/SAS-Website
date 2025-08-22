@@ -217,26 +217,6 @@
             backdrop-filter: var(--backdrop-blur);
         }
 
-        /* Avatar styles for social proof */
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gradient-main);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 16px;
-            margin-left: -8px;
-            border: 2px solid var(--primary-dark);
-        }
-
-        .avatar:first-child {
-            margin-left: 0;
-        }
-
         .hero h1 {
             font-size: 64px;
             font-weight: 800;
@@ -1069,174 +1049,6 @@
             50% { box-shadow: 0 0 0 20px rgba(0, 212, 255, 0); }
         }
 
-        /* Calculator Section Styles */
-        .calculator-section, .ai-call-section {
-            padding: 80px 0;
-            background: var(--secondary-dark);
-        }
-
-        .calculator-container, .ai-call-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .calculator-form, .ai-call-form {
-            background: var(--card-bg);
-            border: 1px solid var(--border-dark);
-            border-radius: 16px;
-            padding: 32px;
-            backdrop-filter: var(--backdrop-blur);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-white);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-dark);
-            border-radius: 8px;
-            color: var(--text-white);
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-        }
-
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        .calculator-results {
-            background: var(--card-bg);
-            border: 1px solid var(--border-dark);
-            border-radius: 16px;
-            padding: 32px;
-            backdrop-filter: var(--backdrop-blur);
-        }
-
-        .roi-metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin: 32px 0;
-        }
-
-        .roi-metric {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-        }
-
-        .metric-value {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--accent-cyan);
-            margin-bottom: 8px;
-        }
-
-        .metric-label {
-            font-size: 14px;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .roi-cta {
-            text-align: center;
-            padding: 24px;
-            background: rgba(109, 40, 217, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(109, 40, 217, 0.2);
-        }
-
-        .ai-call-features {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            min-width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-dark);
-        }
-
-        .feature-item h4 {
-            margin: 0 0 8px 0;
-            color: var(--text-white);
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .feature-item p {
-            margin: 0;
-            color: var(--text-gray);
-            line-height: 1.5;
-        }
-
-        .form-disclaimer {
-            margin-top: 16px;
-            font-size: 14px;
-            color: var(--text-gray);
-            text-align: center;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .calculator-container, .ai-call-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .roi-metrics {
-                grid-template-columns: 1fr;
-            }
-
-            .ai-call-features {
-                margin-top: 40px;
-            }
-
-            .feature-item {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
         /* Quiz Modal Styles */
         .quiz-overlay {
             position: fixed;
@@ -1566,11 +1378,11 @@
     <header class="header">
         <nav class="nav">
             <div class="floating-nav" id="floatingNav">
-                <a href="#calculator" class="nav-item">ROI Calculator</a>
-                <a href="#ai-call-me" class="nav-item">AI Call Me</a>
-                <a href="#" class="nav-item quiz-trigger">Assessment</a>
+                <a href="#features" class="nav-item">Features</a>
+                <a href="#video-section" class="nav-item">Success Stories</a>
+                <a href="#testimonials" class="nav-item">Results</a>
                 <a href="tel:6788558576" class="nav-item">📞 (678) 855-8576</a>
-                <a href="#calculator" class="nav-cta">Calculate ROI Now →</a>
+                <a href="#" class="nav-cta quiz-trigger">🚀 Free AI Assessment</a>
             </div>
             <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
         </nav>
@@ -1579,73 +1391,40 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">
-                <span>🚀</span>
-                <span>500+ Home Service Businesses Transformed</span>
-            </div>
-            
-            <h1>Stop Losing $50,000+ in After-Hours Leads</h1>
-            
-            <p class="hero-subtitle">
-                Join 500+ home service businesses capturing more leads and booking more appointments—with an average <span style="color: var(--accent-cyan); font-weight: 700;">847% ROI</span> in just 6 months.
-            </p>
-
-            <div class="social-proof">
-                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 32px;">
-                    <div style="display: flex;">
-                        <div class="avatar">S</div>
-                        <div class="avatar">M</div>
-                        <div class="avatar">J</div>
-                    </div>
-                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <div style="display: flex; color: #fbbf24; font-size: 14px;">⭐⭐⭐⭐⭐</div>
-                        <span style="color: var(--text-gray); font-size: 14px;">4.9/5 (127 reviews)</span>
-                    </div>
+            <div class="hero-content fade-in">
+                <div class="hero-badge">
+                    🚀 AI-Powered Business Automation • Save $47,000+ Annually
                 </div>
+                
+                <h1>Converting Leads On Autopilot w/the Power Of AI</h1>
+                
+                <p class="hero-subtitle">
+                    Transform your home development, contracting, or service business with intelligent automation that works 24/7. 
+                    Never miss a lead, automate follow-ups, and scale without adding headcount.
+                </p>
 
                 <div class="hero-ctas">
-                    <a href="#calculator" class="btn btn-primary">
-                        Calculate Your ROI Now →
+                    <a href="#cta" class="btn btn-primary pulse-glow">
+                        🎯 Get My Free AI Roadmap
                     </a>
-                    <a href="#ai-call-me" class="btn btn-secondary">
-                        Have AI Call Me
-                    </a>
-                    <a href="#" class="btn btn-secondary quiz-trigger">
-                        Free Assessment
+                    <a href="#features" class="btn btn-secondary">
+                        📊 See How It Works
                     </a>
                 </div>
-            </div>
 
-            <!-- Hero Stats Grid -->
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <div class="stat-number">847%</div>
-                    <div class="stat-label">Average ROI</div>
-                    <div class="stat-change">+23% vs last year</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Businesses Served</div>
-                    <div class="stat-change">Growing daily</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Lead Response</div>
-                    <div class="stat-change">Never miss again</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">60s</div>
-                    <div class="stat-label">Response Time</div>
-                    <div class="stat-change">Industry leading</div>
-                </div>
-            </div>
-
-            <!-- Company Logo Integration -->
-            <div class="company-branding" style="margin-top: 48px;">
-                <img src="https://www.simpleaccelerationsystems.com/wp-content/uploads/2023/08/Untitled-1500-x-600-px-1500-x-1500-px-150-x-150-px.png" alt="Simple Acceleration Systems" class="hero-logo">
-                <div class="company-tagline">
-                    <span class="company-name">Simple Acceleration Systems</span>
-                    <span class="social-proof-text">Scott@simpleaccelerationsystems.com • (678) 855-8576</span>
+                <div class="social-proof">
+                    <div class="company-branding">
+                        <img src="https://www.simpleaccelerationsystems.com/wp-content/uploads/2023/08/Untitled-1500-x-600-px-1500-x-1500-px-150-x-150-px.png" alt="Simple Acceleration Systems" class="hero-logo">
+                        <div class="company-tagline">
+                            <span class="company-name">Simple Acceleration Systems</span>
+                            <span class="social-proof-text">Trusted by 200+ growing businesses since 2024</span>
+                        </div>
+                    </div>
+                    <div class="client-logos">
+                        <div style="color: var(--text-gray); font-size: 14px; opacity: 0.6;">
+                            Solar Companies • Roofing Contractors • Home Builders • Auto Services • Healthcare
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2462,141 +2241,6 @@
             }
         });
     </script>
-
-    <!-- ROI Calculator Section -->
-    <section id="calculator" class="calculator-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Calculate Your ROI from AI Automation</h2>
-                <p>See exactly how much revenue you could be generating with intelligent lead response</p>
-            </div>
-            
-            <div class="calculator-container">
-                <div class="calculator-form">
-                    <div class="form-group">
-                        <label for="monthlyLeads">Monthly Leads</label>
-                        <input type="number" id="monthlyLeads" min="1" max="10000" value="100" placeholder="e.g. 100">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="currentConversion">Current Conversion Rate (%)</label>
-                        <input type="number" id="currentConversion" min="1" max="100" value="15" placeholder="e.g. 15">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="averageDeal">Average Deal Value ($)</label>
-                        <input type="number" id="averageDeal" min="100" max="1000000" value="25000" placeholder="e.g. 25000">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="businessType">Business Type</label>
-                        <select id="businessType">
-                            <option value="solar">Solar Installation</option>
-                            <option value="roofing">Roofing</option>
-                            <option value="new-homes">New Home Construction</option>
-                            <option value="auto">Automotive Service</option>
-                            <option value="healthcare">Healthcare/Chiropractic</option>
-                            <option value="other">Other Service Business</option>
-                        </select>
-                    </div>
-                    
-                    <button type="button" id="calculateROI" class="btn btn-primary">Calculate My ROI →</button>
-                </div>
-                
-                <div class="calculator-results" id="calculatorResults" style="display: none;">
-                    <h3>Your AI Automation ROI Projection</h3>
-                    <div class="roi-metrics">
-                        <div class="roi-metric">
-                            <div class="metric-value" id="currentRevenue">$0</div>
-                            <div class="metric-label">Current Monthly Revenue</div>
-                        </div>
-                        <div class="roi-metric">
-                            <div class="metric-value" id="projectedRevenue">$0</div>
-                            <div class="metric-label">Projected Monthly Revenue</div>
-                        </div>
-                        <div class="roi-metric">
-                            <div class="metric-value" id="monthlyIncrease">$0</div>
-                            <div class="metric-label">Monthly Increase</div>
-                        </div>
-                        <div class="roi-metric">
-                            <div class="metric-value" id="annualIncrease">$0</div>
-                            <div class="metric-label">Annual Revenue Increase</div>
-                        </div>
-                    </div>
-                    <div class="roi-cta">
-                        <p>Ready to achieve these results? <strong>Let's make it happen.</strong></p>
-                        <a href="#ai-call-me" class="btn btn-primary">Get My Custom Strategy →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Call Me Section -->
-    <section id="ai-call-me" class="ai-call-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Have Our AI Call You Right Now</h2>
-                <p>Get instant answers to your questions. Our AI will call you in 60 seconds.</p>
-            </div>
-            
-            <div class="ai-call-container">
-                <div class="ai-call-form">
-                    <div class="form-group">
-                        <label for="callName">Your Name</label>
-                        <input type="text" id="callName" placeholder="Enter your full name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="callPhone">Phone Number</label>
-                        <input type="tel" id="callPhone" placeholder="(555) 123-4567" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="callBusiness">Business Type</label>
-                        <select id="callBusiness">
-                            <option value="">Select your business type</option>
-                            <option value="solar">Solar Installation</option>
-                            <option value="roofing">Roofing</option>
-                            <option value="new-homes">New Home Construction</option>
-                            <option value="auto">Automotive Service</option>
-                            <option value="healthcare">Healthcare/Chiropractic</option>
-                            <option value="other">Other Service Business</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="callQuestion">What would you like to know?</label>
-                        <textarea id="callQuestion" placeholder="e.g. How can AI help my solar business capture more leads?"></textarea>
-                    </div>
-                    
-                    <button type="button" id="requestAICall" class="btn btn-primary">Have AI Call Me Now →</button>
-                    
-                    <p class="form-disclaimer">
-                        Your AI call will arrive within 60 seconds. No spam, just helpful information.
-                    </p>
-                </div>
-                
-                <div class="ai-call-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">🤖</div>
-                        <h4>Intelligent Conversation</h4>
-                        <p>Our AI understands your business and provides relevant, actionable advice</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <h4>60-Second Response</h4>
-                        <p>No waiting around. Your call arrives in 60 seconds or less</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
-                        <h4>Personalized Strategy</h4>
-                        <p>Get recommendations tailored specifically to your business type and goals</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Quiz Modal -->
     <div class="quiz-overlay" id="quizOverlay">
@@ -3696,219 +3340,6 @@
 
         // Initialize quiz
         const quizInstance = new GrowthAssessmentQuiz();
-
-        // ROI Calculator Functionality
-        class ROICalculator {
-            constructor() {
-                this.init();
-            }
-
-            init() {
-                const calculateBtn = document.getElementById('calculateROI');
-                if (calculateBtn) {
-                    calculateBtn.addEventListener('click', () => this.calculateROI());
-                }
-            }
-
-            calculateROI() {
-                const monthlyLeads = parseInt(document.getElementById('monthlyLeads').value) || 100;
-                const currentConversion = parseFloat(document.getElementById('currentConversion').value) || 15;
-                const averageDeal = parseInt(document.getElementById('averageDeal').value) || 25000;
-                const businessType = document.getElementById('businessType').value || 'solar';
-
-                // Industry-specific improvement multipliers
-                const industryMultipliers = {
-                    'solar': { improvement: 2.2, baseline: 18 },
-                    'roofing': { improvement: 2.4, baseline: 20 },
-                    'new-homes': { improvement: 2.0, baseline: 15 },
-                    'auto': { improvement: 2.6, baseline: 25 },
-                    'healthcare': { improvement: 2.8, baseline: 30 },
-                    'other': { improvement: 2.2, baseline: 18 }
-                };
-
-                const multiplier = industryMultipliers[businessType];
-                
-                // Current performance
-                const currentConversions = Math.round(monthlyLeads * (currentConversion / 100));
-                const currentRevenue = currentConversions * averageDeal;
-
-                // Projected performance with AI
-                const improvedConversion = Math.min(currentConversion * multiplier.improvement, 85); // Cap at 85%
-                const projectedConversions = Math.round(monthlyLeads * (improvedConversion / 100));
-                const projectedRevenue = projectedConversions * averageDeal;
-
-                // Calculate increases
-                const monthlyIncrease = projectedRevenue - currentRevenue;
-                const annualIncrease = monthlyIncrease * 12;
-
-                // Update UI
-                this.displayResults({
-                    currentRevenue,
-                    projectedRevenue,
-                    monthlyIncrease,
-                    annualIncrease
-                });
-
-                // Analytics tracking
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'roi_calculation', {
-                        'event_category': 'Calculator',
-                        'monthly_leads': monthlyLeads,
-                        'business_type': businessType,
-                        'projected_increase': monthlyIncrease
-                    });
-                }
-            }
-
-            displayResults(results) {
-                // Show results container
-                const resultsContainer = document.getElementById('calculatorResults');
-                resultsContainer.style.display = 'block';
-
-                // Update values with animations
-                this.animateValue('currentRevenue', 0, results.currentRevenue);
-                this.animateValue('projectedRevenue', 0, results.projectedRevenue);
-                this.animateValue('monthlyIncrease', 0, results.monthlyIncrease);
-                this.animateValue('annualIncrease', 0, results.annualIncrease);
-
-                // Scroll to results
-                resultsContainer.scrollIntoView({ behavior: 'smooth' });
-            }
-
-            animateValue(elementId, start, end) {
-                const element = document.getElementById(elementId);
-                const duration = 1500;
-                const startTime = Date.now();
-
-                const animate = () => {
-                    const elapsed = Date.now() - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    
-                    // Easing function
-                    const easeProgress = 1 - Math.pow(1 - progress, 3);
-                    
-                    const currentValue = Math.round(start + (end - start) * easeProgress);
-                    element.textContent = '$' + currentValue.toLocaleString();
-
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    }
-                };
-
-                animate();
-            }
-        }
-
-        // AI Call Me Functionality
-        class AICallSystem {
-            constructor() {
-                this.init();
-            }
-
-            init() {
-                const callBtn = document.getElementById('requestAICall');
-                if (callBtn) {
-                    callBtn.addEventListener('click', () => this.requestAICall());
-                }
-            }
-
-            async requestAICall() {
-                const name = document.getElementById('callName').value.trim();
-                const phone = document.getElementById('callPhone').value.trim();
-                const business = document.getElementById('callBusiness').value;
-                const question = document.getElementById('callQuestion').value.trim();
-
-                // Validation
-                if (!name || !phone) {
-                    alert('Please enter your name and phone number.');
-                    return;
-                }
-
-                // Phone validation
-                const phoneRegex = /^[\+]?[1-9][\d\-\(\)\s]{7,15}$/;
-                if (!phoneRegex.test(phone)) {
-                    alert('Please enter a valid phone number.');
-                    return;
-                }
-
-                // Disable button and show loading
-                const callBtn = document.getElementById('requestAICall');
-                const originalText = callBtn.textContent;
-                callBtn.disabled = true;
-                callBtn.textContent = 'Initiating AI Call...';
-
-                try {
-                    // Simulate API call for AI phone system
-                    await this.simulateAICallRequest({
-                        name,
-                        phone,
-                        business,
-                        question
-                    });
-
-                    // Success feedback
-                    callBtn.textContent = 'AI Call Initiated! ✓';
-                    callBtn.style.background = 'var(--success)';
-                    
-                    // Show success message
-                    this.showSuccessMessage('Your AI call will arrive within 60 seconds!');
-
-                    // Analytics tracking
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'ai_call_request', {
-                            'event_category': 'Lead Generation',
-                            'business_type': business,
-                            'has_question': question.length > 0
-                        });
-                    }
-
-                } catch (error) {
-                    console.error('AI Call request failed:', error);
-                    callBtn.disabled = false;
-                    callBtn.textContent = originalText;
-                    alert('Sorry, there was an issue. Please try again or call us directly at (678) 855-8576');
-                }
-            }
-
-            async simulateAICallRequest(data) {
-                // Simulate API call delay
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // In production, this would call your AI phone system API
-                console.log('AI Call Request:', data);
-                return { success: true, callId: 'ai_call_' + Date.now() };
-            }
-
-            showSuccessMessage(message) {
-                const successDiv = document.createElement('div');
-                successDiv.style.cssText = `
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: var(--success);
-                    color: white;
-                    padding: 20px 40px;
-                    border-radius: 12px;
-                    font-size: 18px;
-                    font-weight: 600;
-                    z-index: 10000;
-                    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
-                    animation: successPulse 0.5s ease-out;
-                `;
-                successDiv.textContent = message;
-
-                document.body.appendChild(successDiv);
-
-                setTimeout(() => {
-                    successDiv.remove();
-                }, 4000);
-            }
-        }
-
-        // Initialize new functionality
-        const roiCalculator = new ROICalculator();
-        const aiCallSystem = new AICallSystem();
 
         // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
