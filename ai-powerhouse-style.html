@@ -183,6 +183,7 @@
             background: var(--gradient-hero);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .hero::before {
@@ -260,9 +261,11 @@
 
         .hero-ctas {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
-            margin-bottom: 60px;
+            flex-wrap: wrap;
+            margin: 40px auto 48px auto;
+            max-width: 700px;
         }
 
         .btn {
@@ -1069,25 +1072,94 @@
             50% { box-shadow: 0 0 0 20px rgba(0, 212, 255, 0); }
         }
 
-        /* Calculator Section Styles */
-        .calculator-section, .ai-call-section {
-            padding: 80px 0;
-            background: var(--secondary-dark);
+        /* Modal Overlay Styles */
+        .calculator-overlay, .ai-call-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-overlay.active, .ai-call-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         .calculator-container, .ai-call-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
+            background: var(--secondary-dark);
+            border: 2px solid var(--border-dark);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: all 0.3s ease;
         }
 
-        .calculator-form, .ai-call-form {
+        .calculator-overlay.active .calculator-container,
+        .ai-call-overlay.active .ai-call-container {
+            transform: scale(1);
+        }
+
+        .calculator-close, .ai-call-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-close:hover, .ai-call-close:hover {
             background: var(--card-bg);
-            border: 1px solid var(--border-dark);
-            border-radius: 16px;
-            padding: 32px;
-            backdrop-filter: var(--backdrop-blur);
+            color: var(--text-white);
+        }
+
+        .calculator-header, .ai-call-header {
+            text-align: center;
+            padding: 40px 40px 20px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .calculator-header h2, .ai-call-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .calculator-header p, .ai-call-header p {
+            color: var(--text-gray);
+            font-size: 16px;
+        }
+
+        .calculator-content, .ai-call-content {
+            padding: 40px;
         }
 
         .form-group {
@@ -1105,10 +1177,10 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-dark);
-            border-radius: 8px;
+            padding: 14px 16px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-dark);
+            border-radius: 10px;
             color: var(--text-white);
             font-size: 16px;
             transition: all 0.3s ease;
@@ -1119,7 +1191,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
         }
 
         .form-group textarea {
@@ -1128,18 +1200,26 @@
         }
 
         .calculator-results {
-            background: var(--card-bg);
-            border: 1px solid var(--border-dark);
-            border-radius: 16px;
+            margin-top: 32px;
             padding: 32px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-dark);
+            border-radius: 16px;
             backdrop-filter: var(--backdrop-blur);
+        }
+
+        .calculator-results h3 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: var(--text-white);
+            font-size: 24px;
         }
 
         .roi-metrics {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin: 32px 0;
+            gap: 20px;
+            margin: 24px 0;
         }
 
         .roi-metric {
@@ -1151,14 +1231,14 @@
         }
 
         .metric-value {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--accent-cyan);
             margin-bottom: 8px;
         }
 
         .metric-label {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -1170,43 +1250,7 @@
             background: rgba(109, 40, 217, 0.1);
             border-radius: 12px;
             border: 1px solid rgba(109, 40, 217, 0.2);
-        }
-
-        .ai-call-features {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            min-width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-dark);
-        }
-
-        .feature-item h4 {
-            margin: 0 0 8px 0;
-            color: var(--text-white);
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .feature-item p {
-            margin: 0;
-            color: var(--text-gray);
-            line-height: 1.5;
+            margin-top: 24px;
         }
 
         .form-disclaimer {
@@ -1214,26 +1258,31 @@
             font-size: 14px;
             color: var(--text-gray);
             text-align: center;
+            font-style: italic;
         }
 
-        /* Mobile Responsive */
+        /* Mobile Modal Responsive */
         @media (max-width: 768px) {
             .calculator-container, .ai-call-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
+                width: 95vw;
+                max-height: 95vh;
+            }
+
+            .calculator-header, .ai-call-header {
+                padding: 30px 20px 15px;
+            }
+
+            .calculator-content, .ai-call-content {
+                padding: 20px;
             }
 
             .roi-metrics {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
 
-            .ai-call-features {
-                margin-top: 40px;
-            }
-
-            .feature-item {
-                flex-direction: column;
-                text-align: center;
+            .calculator-header h2, .ai-call-header h2 {
+                font-size: 24px;
             }
         }
 
@@ -1566,11 +1615,11 @@
     <header class="header">
         <nav class="nav">
             <div class="floating-nav" id="floatingNav">
-                <a href="#calculator" class="nav-item">ROI Calculator</a>
-                <a href="#ai-call-me" class="nav-item">AI Call Me</a>
+                <a href="#" class="nav-item calculator-trigger">ROI Calculator</a>
+                <a href="#" class="nav-item ai-call-trigger">AI Call Me</a>
                 <a href="#" class="nav-item quiz-trigger">Assessment</a>
                 <a href="tel:6788558576" class="nav-item">📞 (678) 855-8576</a>
-                <a href="#calculator" class="nav-cta">Calculate ROI Now →</a>
+                <a href="#" class="nav-cta calculator-trigger">Calculate ROI Now →</a>
             </div>
             <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
         </nav>
@@ -1604,10 +1653,10 @@
                 </div>
 
                 <div class="hero-ctas">
-                    <a href="#calculator" class="btn btn-primary">
+                    <a href="#" class="btn btn-primary calculator-trigger">
                         Calculate Your ROI Now →
                     </a>
-                    <a href="#ai-call-me" class="btn btn-secondary">
+                    <a href="#" class="btn btn-secondary ai-call-trigger">
                         Have AI Call Me
                     </a>
                     <a href="#" class="btn btn-secondary quiz-trigger">
@@ -2463,15 +2512,17 @@
         });
     </script>
 
-    <!-- ROI Calculator Section -->
-    <section id="calculator" class="calculator-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Calculate Your ROI from AI Automation</h2>
-                <p>See exactly how much revenue you could be generating with intelligent lead response</p>
+    <!-- ROI Calculator Modal -->
+    <div class="calculator-overlay" id="calculatorOverlay">
+        <div class="calculator-container">
+            <button class="calculator-close" id="calculatorClose">✕</button>
+            
+            <div class="calculator-header">
+                <h2>🧮 Calculate Your AI ROI</h2>
+                <p>See exactly how much revenue you could be generating</p>
             </div>
             
-            <div class="calculator-container">
+            <div class="calculator-content">
                 <div class="calculator-form">
                     <div class="form-group">
                         <label for="monthlyLeads">Monthly Leads</label>
@@ -2525,22 +2576,24 @@
                     </div>
                     <div class="roi-cta">
                         <p>Ready to achieve these results? <strong>Let's make it happen.</strong></p>
-                        <a href="#ai-call-me" class="btn btn-primary">Get My Custom Strategy →</a>
+                        <button class="btn btn-primary ai-call-trigger">Get My Custom Strategy →</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- AI Call Me Section -->
-    <section id="ai-call-me" class="ai-call-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Have Our AI Call You Right Now</h2>
-                <p>Get instant answers to your questions. Our AI will call you in 60 seconds.</p>
+    <!-- AI Call Me Modal -->
+    <div class="ai-call-overlay" id="aiCallOverlay">
+        <div class="ai-call-container">
+            <button class="ai-call-close" id="aiCallClose">✕</button>
+            
+            <div class="ai-call-header">
+                <h2>🤖 AI Will Call You in 60 Seconds</h2>
+                <p>Get instant answers to your questions from our AI</p>
             </div>
             
-            <div class="ai-call-container">
+            <div class="ai-call-content">
                 <div class="ai-call-form">
                     <div class="form-group">
                         <label for="callName">Your Name</label>
@@ -2566,37 +2619,19 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="callQuestion">What would you like to know?</label>
+                        <label for="callQuestion">What would you like to know? (Optional)</label>
                         <textarea id="callQuestion" placeholder="e.g. How can AI help my solar business capture more leads?"></textarea>
                     </div>
                     
                     <button type="button" id="requestAICall" class="btn btn-primary">Have AI Call Me Now →</button>
                     
                     <p class="form-disclaimer">
-                        Your AI call will arrive within 60 seconds. No spam, just helpful information.
+                        ⚡ Your AI call will arrive within 60 seconds • No spam, just helpful information
                     </p>
-                </div>
-                
-                <div class="ai-call-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">🤖</div>
-                        <h4>Intelligent Conversation</h4>
-                        <p>Our AI understands your business and provides relevant, actionable advice</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <h4>60-Second Response</h4>
-                        <p>No waiting around. Your call arrives in 60 seconds or less</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
-                        <h4>Personalized Strategy</h4>
-                        <p>Get recommendations tailored specifically to your business type and goals</p>
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Quiz Modal -->
     <div class="quiz-overlay" id="quizOverlay">
@@ -3909,6 +3944,121 @@
         // Initialize new functionality
         const roiCalculator = new ROICalculator();
         const aiCallSystem = new AICallSystem();
+
+        // Modal Management System
+        class ModalManager {
+            constructor() {
+                this.initCalculatorModal();
+                this.initAICallModal();
+            }
+
+            initCalculatorModal() {
+                const calculatorOverlay = document.getElementById('calculatorOverlay');
+                const calculatorClose = document.getElementById('calculatorClose');
+                
+                // Calculator triggers
+                document.querySelectorAll('.calculator-trigger').forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.openModal(calculatorOverlay);
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'calculator_modal_open', {
+                                'event_category': 'Modal Interaction',
+                                'event_label': 'Calculator Open'
+                            });
+                        }
+                    });
+                });
+
+                // Close handlers
+                if (calculatorClose) {
+                    calculatorClose.addEventListener('click', () => {
+                        this.closeModal(calculatorOverlay);
+                    });
+                }
+
+                if (calculatorOverlay) {
+                    calculatorOverlay.addEventListener('click', (e) => {
+                        if (e.target === calculatorOverlay) {
+                            this.closeModal(calculatorOverlay);
+                        }
+                    });
+                }
+            }
+
+            initAICallModal() {
+                const aiCallOverlay = document.getElementById('aiCallOverlay');
+                const aiCallClose = document.getElementById('aiCallClose');
+                
+                // AI Call triggers
+                document.querySelectorAll('.ai-call-trigger').forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.openModal(aiCallOverlay);
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'ai_call_modal_open', {
+                                'event_category': 'Modal Interaction',
+                                'event_label': 'AI Call Open'
+                            });
+                        }
+                    });
+                });
+
+                // Close handlers
+                if (aiCallClose) {
+                    aiCallClose.addEventListener('click', () => {
+                        this.closeModal(aiCallOverlay);
+                    });
+                }
+
+                if (aiCallOverlay) {
+                    aiCallOverlay.addEventListener('click', (e) => {
+                        if (e.target === aiCallOverlay) {
+                            this.closeModal(aiCallOverlay);
+                        }
+                    });
+                }
+            }
+
+            openModal(modal) {
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            closeModal(modal) {
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        }
+
+        // Initialize modal management
+        const modalManager = new ModalManager();
+
+        // Keyboard support for modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const activeModals = [
+                    document.getElementById('calculatorOverlay'),
+                    document.getElementById('aiCallOverlay'),
+                    document.getElementById('quizOverlay')
+                ].filter(modal => modal && modal.classList.contains('active'));
+
+                activeModals.forEach(modal => {
+                    if (modal.id === 'calculatorOverlay' || modal.id === 'aiCallOverlay') {
+                        modalManager.closeModal(modal);
+                    } else {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
 
         // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
