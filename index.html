@@ -3140,24 +3140,59 @@
                 };
 
                 try {
-                    // Here you would normally send to your backend
-                    console.log('AI Assessment Results:', submissionData);
-                    
+                    // Get contact information from form
+                    const firstName = document.getElementById('firstName').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+
+                    // Send to GoHighLevel via serverless API
+                    console.log('Sending quiz data to GHL...');
+
+                    const ghlResponse = await fetch('/api/ghl-contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            firstName: firstName,
+                            email: email,
+                            phone: phone,
+                            quizData: submissionData
+                        })
+                    });
+
+                    const ghlResult = await ghlResponse.json();
+
+                    if (!ghlResult.success) {
+                        console.error('GHL API Error:', ghlResult.error);
+                        // Continue to show results even if GHL fails
+                        // This ensures user still gets their assessment
+                    } else {
+                        console.log('✅ Contact saved to GHL:', ghlResult.contactId);
+                    }
+
                     // Track completion
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'quiz_completed', {
                             'event_category': 'conversion',
                             'event_label': 'ai_assessment',
-                            'value': aiAnalysis.readinessScore
+                            'value': aiAnalysis.readinessScore,
+                            'ghl_success': ghlResult.success
                         });
                     }
 
                     // Show personalized results page
                     this.showAIResultsPage(aiAnalysis);
-                    
+
                 } catch (error) {
                     console.error('Quiz submission error:', error);
-                    alert('There was an error generating your AI assessment. Please try again or call us directly.');
+
+                    // Still show results page even if API fails
+                    // User experience comes first
+                    this.showAIResultsPage(this.calculateAIReadinessAndROI());
+
+                    // Optionally notify user of issue (silent failure is often better UX)
+                    // alert('Your assessment is ready! We may follow up via phone if we couldn\'t save your contact info.');
                 }
             }
 
