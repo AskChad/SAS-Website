@@ -3169,6 +3169,8 @@
                         // This ensures user still gets their assessment
                     } else {
                         console.log('✅ Contact saved to GHL:', ghlResult.contactId);
+                        // Store contactId for later use (calendar booking)
+                        this.ghlContactId = ghlResult.contactId;
                     }
 
                     // Track completion
@@ -3554,12 +3556,13 @@
                 document.getElementById('meetingForm').style.display = 'none';
             }
 
-            confirmBooking() {
+            async confirmBooking() {
                 const meetingType = document.getElementById('meetingType').value;
                 const communicationType = document.getElementById('communicationType').value;
                 const notes = document.getElementById('meetingNotes').value;
-                
+
                 const bookingData = {
+                    contactId: this.ghlContactId, // Use stored contactId from contact creation
                     date: this.selectedDate.toDateString(),
                     time: this.selectedTime,
                     type: meetingType,
@@ -3572,21 +3575,52 @@
                     },
                     aiAssessment: this.lastAnalysis
                 };
-                
-                // Here you would normally send to your calendar booking system
-                console.log('Calendar Booking:', bookingData);
-                
-                // Track booking
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'calendar_booking', {
-                        'event_category': 'conversion',
-                        'event_label': 'strategy_call',
-                        'value': 1
+
+                console.log('Creating appointment in GHL...', bookingData);
+
+                try {
+                    // Send to GoHighLevel Calendar API
+                    const calendarResponse = await fetch('/api/ghl-calendar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(bookingData)
                     });
+
+                    const calendarResult = await calendarResponse.json();
+
+                    if (!calendarResult.success) {
+                        console.error('GHL Calendar API Error:', calendarResult.error);
+                        // Still show confirmation even if calendar API fails
+                        // Better UX than blocking the user
+                        alert('Your information was saved, but there was an issue scheduling the appointment. We\'ll contact you shortly to confirm your time.');
+                    } else {
+                        console.log('✅ Appointment created in GHL:', calendarResult.appointmentId);
+                    }
+
+                    // Track booking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'calendar_booking', {
+                            'event_category': 'conversion',
+                            'event_label': 'strategy_call',
+                            'value': 1,
+                            'ghl_success': calendarResult.success
+                        });
+                    }
+
+                    // Show confirmation
+                    this.showBookingConfirmation(bookingData);
+
+                } catch (error) {
+                    console.error('Calendar booking error:', error);
+
+                    // Still show confirmation - user experience first
+                    this.showBookingConfirmation(bookingData);
+
+                    // Optionally notify user
+                    alert('Your information was saved! We may follow up to confirm your appointment time.');
                 }
-                
-                // Show confirmation
-                this.showBookingConfirmation(bookingData);
             }
 
             showBookingConfirmation(bookingData) {
