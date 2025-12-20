@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAS Website - Local Testing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .test-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .test-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .test-fixtures {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .test-fixtures h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .fixture-btn {
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .fixture-btn:hover {
+            background: #5d3a7d;
+        }
+
+        .console-output {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+
+        .console-output .log {
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .console-output .log.success {
+            color: #4caf50;
+        }
+
+        .console-output .log.error {
+            color: #f44336;
+        }
+
+        .console-output .log.info {
+            color: #2196f3;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-badge.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 SAS Website - Local Testing Suite</h1>
+
+        <div class="instructions">
+            <h3>📋 Testing Instructions</h3>
+            <p>1. Start local dev server: <code>npm run dev</code> in the site folder</p>
+            <p>2. Ensure .env.local has GHL_API_KEY, GHL_LOCATION_ID, and GHL_CALENDAR_ID</p>
+            <p>3. Use test fixtures below to quickly fill forms with sample data</p>
+            <p>4. Check console output for API responses and errors</p>
+            <p>5. Verify contacts created in GoHighLevel CRM</p>
+        </div>
+
+        <!-- AI Call Form Test -->
+        <div class="test-section">
+            <h2>🤖 AI Call Form Test</h2>
+
+            <div class="test-fixtures">
+                <h3>Quick Test Fixtures:</h3>
+                <button class="fixture-btn" onclick="fillAICallForm('solar')">Solar Business</button>
+                <button class="fixture-btn" onclick="fillAICallForm('roofing')">Roofing Business</button>
+                <button class="fixture-btn" onclick="fillAICallForm('healthcare')">Healthcare Business</button>
+            </div>
+
+            <form id="aiCallTestForm">
+                <div class="form-group">
+                    <label for="testCallName">Name *</label>
+                    <input type="text" id="testCallName" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="testCallPhone">Phone *</label>
+                    <input type="tel" id="testCallPhone" placeholder="(555) 123-4567" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="testCallBusiness">Business Type</label>
+                    <select id="testCallBusiness">
+                        <option value="">Select business type</option>
+                        <option value="solar">Solar Installation</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="new-homes">New Home Construction</option>
+                        <option value="auto">Automotive Service</option>
+                        <option value="healthcare">Healthcare/Chiropractic</option>
+                        <option value="other">Other Service Business</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="testCallWebsite">Website URL</label>
+                    <input type="url" id="testCallWebsite" placeholder="https://example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="testCallQuestion">Question (Optional)</label>
+                    <textarea id="testCallQuestion" placeholder="What would you like to know?"></textarea>
+                </div>
+
+                <button type="button" class="btn" onclick="testAICallSubmission()">
+                    Test AI Call API
+                </button>
+
+                <div id="aiCallStatus"></div>
+            </form>
+        </div>
+
+        <!-- Quiz Contact Form Test -->
+        <div class="test-section">
+            <h2>📝 Quiz Contact Form Test</h2>
+
+            <div class="test-fixtures">
+                <h3>Quick Test Fixtures:</h3>
+                <button class="fixture-btn" onclick="fillQuizContactForm('highPriority')">High Priority Lead</button>
+                <button class="fixture-btn" onclick="fillQuizContactForm('medium')">Medium Lead</button>
+                <button class="fixture-btn" onclick="fillQuizContactForm('nurture')">Nurture Lead</button>
+            </div>
+
+            <form id="quizContactTestForm">
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="testFirstName">First Name *</label>
+                        <input type="text" id="testFirstName" placeholder="Jane" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="testEmail">Email *</label>
+                        <input type="email" id="testEmail" placeholder="jane@example.com" required>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="testPhone">Phone</label>
+                        <input type="tel" id="testPhone" placeholder="(555) 987-6543">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="testWebsite">Website URL</label>
+                        <input type="url" id="testWebsite" placeholder="https://example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="testBusinessType">Business Type *</label>
+                    <select id="testBusinessType" required>
+                        <option value="">Select business type</option>
+                        <option value="solar">Solar Installation</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="new-homes">New Home Construction</option>
+                        <option value="auto">Automotive</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn" onclick="testQuizContactSubmission()">
+                    Test Quiz Contact API
+                </button>
+
+                <div id="quizContactStatus"></div>
+            </form>
+        </div>
+
+        <!-- Console Output -->
+        <div class="test-section">
+            <h2>📊 Console Output</h2>
+            <div class="console-output" id="consoleOutput">
+                <div class="log info">🎯 Testing console ready. Submit forms above to see API responses.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test data fixtures
+        const testFixtures = {
+            aiCall: {
+                solar: {
+                    name: 'Mike Solar',
+                    phone: '5551234567',
+                    business: 'solar',
+                    website: 'https://mikesolar.com',
+                    question: 'How can AI help me close more solar deals?'
+                },
+                roofing: {
+                    name: 'Bob Roofer',
+                    phone: '5559876543',
+                    business: 'roofing',
+                    website: 'https://bobroofing.com',
+                    question: 'Need help with lead follow-up automation'
+                },
+                healthcare: {
+                    name: 'Dr. Sarah Health',
+                    phone: '5552468135',
+                    business: 'healthcare',
+                    website: 'https://drsarah.health',
+                    question: 'Want to automate patient intake process'
+                }
+            },
+            quizContact: {
+                highPriority: {
+                    firstName: 'Rich Prospect',
+                    email: 'rich@bigcompany.com',
+                    phone: '5551111111',
+                    website: 'https://bigcompany.com',
+                    businessType: 'solar',
+                    revenue: 2000000,
+                    readinessScore: 85
+                },
+                medium: {
+                    firstName: 'John Medium',
+                    email: 'john@mediumco.com',
+                    phone: '5552222222',
+                    website: 'https://mediumco.com',
+                    businessType: 'roofing',
+                    revenue: 750000,
+                    readinessScore: 60
+                },
+                nurture: {
+                    firstName: 'Mary Starter',
+                    email: 'mary@startup.com',
+                    phone: '5553333333',
+                    website: 'https://startup.com',
+                    businessType: 'other',
+                    revenue: 75000,
+                    readinessScore: 45
+                }
+            }
+        };
+
+        // Fill AI Call form with fixture data
+        function fillAICallForm(type) {
+            const data = testFixtures.aiCall[type];
+            document.getElementById('testCallName').value = data.name;
+            document.getElementById('testCallPhone').value = data.phone;
+            document.getElementById('testCallBusiness').value = data.business;
+            document.getElementById('testCallWebsite').value = data.website;
+            document.getElementById('testCallQuestion').value = data.question;
+            logToConsole(`✅ Filled AI Call form with ${type} fixture data`, 'success');
+        }
+
+        // Fill Quiz Contact form with fixture data
+        function fillQuizContactForm(type) {
+            const data = testFixtures.quizContact[type];
+            document.getElementById('testFirstName').value = data.firstName;
+            document.getElementById('testEmail').value = data.email;
+            document.getElementById('testPhone').value = data.phone;
+            document.getElementById('testWebsite').value = data.website;
+            document.getElementById('testBusinessType').value = data.businessType;
+            logToConsole(`✅ Filled Quiz Contact form with ${type} fixture data`, 'success');
+        }
+
+        // Test AI Call API
+        async function testAICallSubmission() {
+            const statusEl = document.getElementById('aiCallStatus');
+            statusEl.innerHTML = '';
+
+            const data = {
+                name: document.getElementById('testCallName').value,
+                phone: document.getElementById('testCallPhone').value,
+                business: document.getElementById('testCallBusiness').value,
+                website: document.getElementById('testCallWebsite').value,
+                question: document.getElementById('testCallQuestion').value
+            };
+
+            logToConsole('🚀 Testing AI Call API...', 'info');
+            logToConsole(`📤 Payload: ${JSON.stringify(data, null, 2)}`, 'info');
+
+            try {
+                const response = await fetch('/api/ghl-ai-call', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    logToConsole(`✅ SUCCESS: Contact created with ID: ${result.contactId}`, 'success');
+                    logToConsole(`📊 Tags: ${result.tags.join(', ')}`, 'success');
+                    statusEl.innerHTML = `<div class="status-badge success">✅ Contact Created: ${result.contactId}</div>`;
+                } else {
+                    logToConsole(`❌ ERROR: ${result.error}`, 'error');
+                    statusEl.innerHTML = `<div class="status-badge error">❌ Error: ${result.error}</div>`;
+                }
+
+                logToConsole(`📥 Full Response: ${JSON.stringify(result, null, 2)}`, 'info');
+
+            } catch (error) {
+                logToConsole(`❌ FETCH ERROR: ${error.message}`, 'error');
+                statusEl.innerHTML = `<div class="status-badge error">❌ ${error.message}</div>`;
+            }
+        }
+
+        // Test Quiz Contact API
+        async function testQuizContactSubmission() {
+            const statusEl = document.getElementById('quizContactStatus');
+            statusEl.innerHTML = '';
+
+            const mockQuizData = {
+                step1: document.getElementById('testBusinessType').value,
+                step2: ['cold-leads', 'manual-followup'],
+                step3: 500000,
+                leadVolumeInput: 25,
+                step5: 'basic-crm',
+                step6: '2-5',
+                aiReadinessScore: 75,
+                roiProjection: {
+                    annualSavings: 450000,
+                    timeSavedHours: 1200,
+                    paybackMonths: 0.8
+                },
+                submissionDate: new Date().toISOString(),
+                source: 'test_local'
+            };
+
+            const data = {
+                firstName: document.getElementById('testFirstName').value,
+                email: document.getElementById('testEmail').value,
+                phone: document.getElementById('testPhone').value,
+                website: document.getElementById('testWebsite').value,
+                quizData: mockQuizData
+            };
+
+            logToConsole('🚀 Testing Quiz Contact API...', 'info');
+            logToConsole(`📤 Payload: ${JSON.stringify(data, null, 2)}`, 'info');
+
+            try {
+                const response = await fetch('/api/ghl-contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    logToConsole(`✅ SUCCESS: Contact created with ID: ${result.contactId}`, 'success');
+                    logToConsole(`📊 Tags: ${result.tags.join(', ')}`, 'success');
+                    statusEl.innerHTML = `<div class="status-badge success">✅ Contact Created: ${result.contactId}</div>`;
+                } else {
+                    logToConsole(`❌ ERROR: ${result.error}`, 'error');
+                    statusEl.innerHTML = `<div class="status-badge error">❌ Error: ${result.error}</div>`;
+                }
+
+                logToConsole(`📥 Full Response: ${JSON.stringify(result, null, 2)}`, 'info');
+
+            } catch (error) {
+                logToConsole(`❌ FETCH ERROR: ${error.message}`, 'error');
+                statusEl.innerHTML = `<div class="status-badge error">❌ ${error.message}</div>`;
+            }
+        }
+
+        // Console logging function
+        function logToConsole(message, type = 'info') {
+            const consoleOutput = document.getElementById('consoleOutput');
+            const logEntry = document.createElement('div');
+            logEntry.className = `log ${type}`;
+            logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            consoleOutput.appendChild(logEntry);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            console.log(message);
+        }
+
+        // Initialize
+        logToConsole('🎯 Local testing framework initialized', 'success');
+        logToConsole('📋 Use fixtures above to quickly test APIs', 'info');
+    </script>
+</body>
+</html>

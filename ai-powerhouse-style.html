@@ -1,0 +1,4159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Converting leads on autopilot with the power of AI. Transform your business with Simple Acceleration Systems' intelligent automation platform designed for home builders, contractors, and service professionals.">
+    <meta name="theme-color" content="#0066ff">
+    <title>Converting Leads On Autopilot w/the Power Of AI | Simple Acceleration Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0a0f;
+            --secondary-dark: #141420;
+            --accent-blue: #0066ff;
+            --accent-purple: #6d28d9;
+            --accent-cyan: #00d4ff;
+            --text-white: #ffffff;
+            --text-gray: #a1a1aa;
+            --text-light: #e4e4e7;
+            --border-dark: rgba(255, 255, 255, 0.1);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --gradient-main: linear-gradient(135deg, #0066ff 0%, #6d28d9 50%, #00d4ff 100%);
+            --gradient-hero: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --backdrop-blur: blur(20px);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Expert Navigation Design */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: var(--backdrop-blur);
+            border-bottom: 1px solid var(--border-dark);
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Remove logo styles - will be repositioned later */
+
+        /* Floating Action Navigation */
+        .floating-nav {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-dark);
+            border-radius: 50px;
+            padding: 8px 24px;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            backdrop-filter: var(--backdrop-blur);
+        }
+
+        .nav-item {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            color: var(--text-white);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .nav-item.active {
+            background: var(--gradient-main);
+            color: white;
+        }
+
+        .nav-cta {
+            background: var(--gradient-main);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 102, 255, 0.4);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-nav-toggle:hover {
+            background: var(--card-bg);
+        }
+
+        @media (max-width: 768px) {
+            .floating-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 24px;
+                right: 24px;
+                margin-top: 10px;
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 16px;
+                gap: 12px;
+            }
+
+            .floating-nav.active {
+                display: flex;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            .nav-item {
+                padding: 12px 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav-cta {
+                margin-top: 8px;
+                text-align: center;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 100px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-main);
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--accent-cyan);
+            margin-bottom: 40px;
+            backdrop-filter: var(--backdrop-blur);
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+        }
+
+        /* Avatar styles for social proof */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            margin-left: -8px;
+            border: 2px solid var(--primary-dark);
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.025em;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            color: var(--text-light);
+            margin-bottom: 48px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px auto 48px auto;
+            max-width: 700px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-main);
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--border-dark);
+            backdrop-filter: var(--backdrop-blur);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-bg);
+            border-color: var(--accent-cyan);
+        }
+
+        .social-proof {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            opacity: 0.9;
+        }
+
+        .company-branding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin: 48px auto 32px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .hero-logo {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            border-radius: 12px;
+            filter: drop-shadow(0 4px 16px rgba(0, 102, 255, 0.2));
+        }
+
+        .company-tagline {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 700;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .company-tagline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .social-proof-text {
+            font-size: 14px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .client-logos {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 32px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* Problems Section */
+        .problems {
+            padding: 100px 0;
+            background: var(--secondary-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .problem-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-dark);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: var(--backdrop-blur);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 68, 68, 0.3);
+        }
+
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+            color: #ef4444;
+        }
+
+        .problem-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-white);
+        }
+
+        .problem-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 100px 0;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .solution-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-dark);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: var(--backdrop-blur);
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 48px rgba(0, 212, 255, 0.1);
+        }
+
+        .solution-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .solution-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-white);
+        }
+
+        .solution-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .solution-features {
+            list-style: none;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .solution-features li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--secondary-dark);
+        }
+
+        .features-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .features-text h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-text p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            color: var(--accent-cyan);
+            margin-top: 4px;
+        }
+
+        .feature-content h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-white);
+        }
+
+        .feature-content p {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .features-visual {
+            position: relative;
+        }
+
+        .features-dashboard {
+            background: var(--card-bg);
+            border: 1px solid var(--border-dark);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: var(--backdrop-blur);
+        }
+
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .dashboard-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dashboard-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dashboard-dot.red { background: #ef4444; }
+        .dashboard-dot.yellow { background: #f59e0b; }
+        .dashboard-dot.green { background: #10b981; }
+
+        .dashboard-title {
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 48px auto;
+            max-width: 800px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid var(--border-dark);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+
+        .stat-change {
+            color: #10b981;
+            font-size: 12px;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 100px 0;
+            background: var(--primary-dark);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-dark);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: var(--backdrop-blur);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 16px 64px rgba(0, 212, 255, 0.15);
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder {
+            position: relative;
+            background: var(--secondary-dark);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 102, 255, 0.4);
+        }
+
+        .video-card:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 12px 48px rgba(0, 102, 255, 0.6);
+        }
+
+        .play-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .video-content {
+            padding: 24px;
+        }
+
+        .video-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-white);
+            line-height: 1.3;
+        }
+
+        .video-description {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .video-stats {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .video-stat {
+            font-size: 12px;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 12px;
+            border: 1px solid var(--border-dark);
+            font-weight: 500;
+        }
+
+        .video-stat:nth-child(3) {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            color: var(--accent-cyan);
+        }
+
+        /* Video Modal (for future implementation) */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            aspect-ratio: 16/9;
+            background: var(--secondary-dark);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-dark);
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .video-modal-close:hover {
+            background: var(--accent-cyan);
+            transform: scale(1.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--secondary-dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            border: 1px solid var(--border-dark);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: var(--backdrop-blur);
+        }
+
+        .testimonial-quote {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 24px;
+        }
+
+        .testimonial-info h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-white);
+        }
+
+        .testimonial-info p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--secondary-dark);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-dark);
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 100px 0 80px;
+                min-height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2rem, 4vw, 2.8rem);
+            }
+
+            .features-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.75rem, 6vw, 2.2rem);
+                margin-bottom: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.125rem);
+                margin-bottom: 40px;
+            }
+
+            .hero-badge {
+                font-size: 13px;
+                padding: 8px 16px;
+                margin-bottom: 32px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                margin: 32px auto;
+            }
+
+            .stat-card {
+                padding: 20px 16px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .company-branding {
+                margin: 32px auto 24px;
+            }
+
+            .hero-logo {
+                width: 48px;
+                height: 48px;
+            }
+
+            .company-name {
+                font-size: 16px;
+            }
+
+            .contact-info {
+                font-size: 12px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .problems-grid,
+            .solutions-grid,
+            .video-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-card {
+                margin-bottom: 20px;
+            }
+
+            .video-stats {
+                gap: 8px;
+            }
+
+            .video-stat {
+                font-size: 11px;
+                padding: 3px 6px;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .social-proof {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .client-logos {
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(0, 212, 255, 0); }
+        }
+
+        /* Modal Overlay Styles */
+        .calculator-overlay, .ai-call-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-overlay.active, .ai-call-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .calculator-container, .ai-call-container {
+            background: var(--secondary-dark);
+            border: 2px solid var(--border-dark);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+        }
+
+        .calculator-overlay.active .calculator-container,
+        .ai-call-overlay.active .ai-call-container {
+            transform: scale(1);
+        }
+
+        .calculator-close, .ai-call-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-close:hover, .ai-call-close:hover {
+            background: var(--card-bg);
+            color: var(--text-white);
+        }
+
+        .calculator-header, .ai-call-header {
+            text-align: center;
+            padding: 40px 40px 20px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .calculator-header h2, .ai-call-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .calculator-header p, .ai-call-header p {
+            color: var(--text-gray);
+            font-size: 16px;
+        }
+
+        .calculator-content, .ai-call-content {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-dark);
+            border-radius: 10px;
+            color: var(--text-white);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .calculator-results {
+            margin-top: 32px;
+            padding: 32px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-dark);
+            border-radius: 16px;
+            backdrop-filter: var(--backdrop-blur);
+        }
+
+        .calculator-results h3 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: var(--text-white);
+            font-size: 24px;
+        }
+
+        .roi-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .roi-metric {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .roi-cta {
+            text-align: center;
+            padding: 24px;
+            background: rgba(109, 40, 217, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(109, 40, 217, 0.2);
+            margin-top: 24px;
+        }
+
+        .form-disclaimer {
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--text-gray);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Mobile Modal Responsive */
+        @media (max-width: 768px) {
+            .calculator-container, .ai-call-container {
+                width: 95vw;
+                max-height: 95vh;
+            }
+
+            .calculator-header, .ai-call-header {
+                padding: 30px 20px 15px;
+            }
+
+            .calculator-content, .ai-call-content {
+                padding: 20px;
+            }
+
+            .roi-metrics {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .calculator-header h2, .ai-call-header h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* Quiz Modal Styles */
+        .quiz-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .quiz-container {
+            background: var(--secondary-dark);
+            border: 1px solid var(--border-dark);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .quiz-overlay.active .quiz-container {
+            transform: scale(1);
+        }
+
+        .quiz-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-close:hover {
+            color: var(--text-white);
+            background: var(--card-bg);
+        }
+
+        .quiz-progress {
+            margin-bottom: 32px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-main);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .quiz-step {
+            display: none;
+        }
+
+        .quiz-step.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .quiz-question {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quiz-subtitle {
+            color: var(--text-gray);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .quiz-option {
+            background: var(--card-bg);
+            border: 2px solid var(--border-dark);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--accent-blue);
+            background: rgba(0, 102, 255, 0.1);
+        }
+
+        .quiz-option-icon {
+            font-size: 24px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .quiz-option-text {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .quiz-checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .quiz-checkbox-option {
+            background: var(--card-bg);
+            border: 2px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .quiz-checkbox-option:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .quiz-checkbox-option.selected {
+            border-color: var(--accent-blue);
+            background: rgba(0, 102, 255, 0.1);
+        }
+
+        .quiz-input {
+            width: 100%;
+            background: var(--card-bg);
+            border: 2px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 16px;
+            color: var(--text-white);
+            font-size: 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .quiz-slider {
+            width: 100%;
+            margin: 24px 0;
+        }
+
+        .slider-track {
+            width: 100%;
+            height: 8px;
+            background: var(--card-bg);
+            border-radius: 4px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .slider-fill {
+            height: 100%;
+            background: var(--gradient-main);
+            border-radius: 4px;
+            width: 25%;
+            transition: width 0.3s ease;
+        }
+
+        .slider-thumb {
+            position: absolute;
+            top: -8px;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+            transition: all 0.3s ease;
+            left: 21%;
+        }
+
+        .slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+        }
+
+        .quiz-back {
+            background: transparent;
+            border: 1px solid var(--border-dark);
+            color: var(--text-gray);
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-back:hover {
+            border-color: var(--accent-cyan);
+            color: var(--text-white);
+        }
+
+        .quiz-next {
+            background: var(--gradient-main);
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
+        }
+
+        .quiz-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .quiz-humor {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-style: italic;
+            color: var(--accent-cyan);
+            text-align: center;
+        }
+
+        .quiz-value-add {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            color: var(--success);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 24px;
+            }
+            
+            .quiz-question {
+                font-size: 24px;
+            }
+            
+            .quiz-checkbox-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Expert Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="floating-nav" id="floatingNav">
+                <a href="#" class="nav-item calculator-trigger">ROI Calculator</a>
+                <a href="#" class="nav-item ai-call-trigger">AI Call Me</a>
+                <a href="#" class="nav-item quiz-trigger">Assessment</a>
+                <a href="tel:6788558576" class="nav-item">📞 (678) 855-8576</a>
+                <a href="#" class="nav-cta calculator-trigger">Calculate ROI Now →</a>
+            </div>
+            <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span>🚀</span>
+                <span>500+ Home Service Businesses Transformed</span>
+            </div>
+            
+            <h1>Stop Losing $50,000+ in After-Hours Leads</h1>
+            
+            <p class="hero-subtitle">
+                Join 500+ home service businesses capturing more leads and booking more appointments—with an average <span style="color: var(--accent-cyan); font-weight: 700;">100% ROI</span> in just 6 months.
+            </p>
+
+            <!-- Hero Stats Grid -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Businesses Served</div>
+                    <div class="stat-change">Growing daily</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Lead Response</div>
+                    <div class="stat-change">Never miss again</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60s</div>
+                    <div class="stat-label">Response Time</div>
+                    <div class="stat-change">Industry leading</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">The Hidden Cost of Manual Operations</h2>
+                <p class="section-subtitle">
+                    Every day you don't automate, you're losing money, leads, and opportunities to competitors who do.
+                </p>
+            </div>
+
+            <div class="problems-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">💸</div>
+                    <h3 class="problem-title">Leads Slipping Through Cracks</h3>
+                    <p class="problem-description">
+                        Manual follow-ups mean delayed responses. By the time you call back, your prospects have already 
+                        moved on to competitors who responded instantly with automated systems.
+                    </p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">⏰</div>
+                    <h3 class="problem-title">After-Hours Revenue Loss</h3>
+                    <p class="problem-description">
+                        Your business sleeps while opportunities work 24/7. Leads generated at night, weekends, and holidays 
+                        go cold waiting for Monday morning responses.
+                    </p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">👥</div>
+                    <h3 class="problem-title">Expensive Human Resources</h3>
+                    <p class="problem-description">
+                        Hiring, training, and managing staff for basic lead qualification and follow-up tasks costs 
+                        $47,000+ annually per employee, plus benefits and overhead.
+                    </p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">📉</div>
+                    <h3 class="problem-title">Inconsistent Follow-Up</h3>
+                    <p class="problem-description">
+                        Human error leads to missed calls, forgotten follow-ups, and inconsistent messaging. 
+                        Your conversion rates suffer from unpredictable customer experiences.
+                    </p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🔥</div>
+                    <h3 class="problem-title">Scaling Bottlenecks</h3>
+                    <p class="problem-description">
+                        Growth requires more staff, more management, more complexity. Without automation, 
+                        scaling becomes expensive and error-prone instead of profitable.
+                    </p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">📊</div>
+                    <h3 class="problem-title">No Data-Driven Insights</h3>
+                    <p class="problem-description">
+                        Manual processes provide little data. You can't optimize what you can't measure, 
+                        leaving money on the table with every missed optimization opportunity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">AI Solutions That Actually Work</h2>
+                <p class="section-subtitle">
+                    Purpose-built automation that understands your industry and converts leads while you sleep.
+                </p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">⚡</div>
+                    <h3 class="solution-title">Instant Lead Response</h3>
+                    <p class="solution-description">
+                        AI responds to every lead in under 60 seconds, 24/7. No more lost opportunities due to delayed responses.
+                    </p>
+                    <ul class="solution-features">
+                        <li>Sub-60 second response time</li>
+                        <li>24/7 availability</li>
+                        <li>Industry-specific conversations</li>
+                        <li>Automatic qualification</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">🤖</div>
+                    <h3 class="solution-title">Intelligent Conversation AI</h3>
+                    <p class="solution-description">
+                        Human-like conversations that understand context, handle objections, and guide prospects to appointment booking.
+                    </p>
+                    <ul class="solution-features">
+                        <li>Natural language processing</li>
+                        <li>Context-aware responses</li>
+                        <li>Objection handling</li>
+                        <li>Appointment scheduling</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">📱</div>
+                    <h3 class="solution-title">Multi-Channel Automation</h3>
+                    <p class="solution-description">
+                        SMS, email, voice calls, and social media - all automated and coordinated for maximum impact.
+                    </p>
+                    <ul class="solution-features">
+                        <li>SMS automation</li>
+                        <li>Email sequences</li>
+                        <li>Voice AI calling</li>
+                        <li>Social media integration</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">🎯</div>
+                    <h3 class="solution-title">Smart Lead Qualification</h3>
+                    <p class="solution-description">
+                        AI qualifies leads based on your criteria, ensuring you only spend time on high-value prospects.
+                    </p>
+                    <ul class="solution-features">
+                        <li>Automated scoring</li>
+                        <li>Budget qualification</li>
+                        <li>Timeline assessment</li>
+                        <li>Priority routing</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">🔄</div>
+                    <h3 class="solution-title">Database Reactivation</h3>
+                    <p class="solution-description">
+                        Turn cold leads into warm opportunities with AI-powered reactivation campaigns that convert at 3%+.
+                    </p>
+                    <ul class="solution-features">
+                        <li>Cold lead revival</li>
+                        <li>Personalized outreach</li>
+                        <li>3%+ conversion rates</li>
+                        <li>ROI tracking</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">📈</div>
+                    <h3 class="solution-title">Performance Analytics</h3>
+                    <p class="solution-description">
+                        Real-time insights and optimization recommendations to continuously improve your conversion rates.
+                    </p>
+                    <ul class="solution-features">
+                        <li>Real-time dashboards</li>
+                        <li>Conversion tracking</li>
+                        <li>ROI analysis</li>
+                        <li>Optimization suggestions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="features-text fade-in">
+                    <h2>Everything You Need to Automate Lead Conversion</h2>
+                    <p>
+                        Our platform combines cutting-edge AI with proven business processes to create 
+                        a complete automation solution that works specifically for your industry.
+                    </p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🚀</div>
+                            <div class="feature-content">
+                                <h4>Instant Deployment</h4>
+                                <p>Live in 30 days with full training</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🔧</div>
+                            <div class="feature-content">
+                                <h4>Industry Specific</h4>
+                                <p>Pre-built for your business type</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-content">
+                                <h4>Real-Time Analytics</h4>
+                                <p>Track every lead and conversion</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <div class="feature-content">
+                                <h4>Fully Compliant</h4>
+                                <p>TCPA and industry regulations</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🔄</div>
+                            <div class="feature-content">
+                                <h4>CRM Integration</h4>
+                                <p>Works with your existing tools</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">📞</div>
+                            <div class="feature-content">
+                                <h4>Human Handoff</h4>
+                                <p>Seamless escalation when needed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-visual fade-in floating">
+                    <div class="features-dashboard">
+                        <div class="dashboard-header">
+                            <div class="dashboard-dots">
+                                <div class="dashboard-dot red"></div>
+                                <div class="dashboard-dot yellow"></div>
+                                <div class="dashboard-dot green"></div>
+                            </div>
+                            <div class="dashboard-title">AI Automation Dashboard</div>
+                        </div>
+                        
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">ROI INCREASE</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">&lt;60s</div>
+                                <div class="stat-label">RESPONSE TIME</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">24/7</div>
+                                <div class="stat-label">AVAILABILITY</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">98%</div>
+                                <div class="stat-label">UPTIME</div>
+                            </div>
+                        </div>
+                        
+                        <div style="padding: 16px; background: rgba(0, 102, 255, 0.1); border-radius: 8px; border: 1px solid rgba(0, 102, 255, 0.2);">
+                            <div style="font-size: 12px; color: var(--accent-cyan); margin-bottom: 8px;">LIVE ACTIVITY</div>
+                            <div style="font-size: 14px; margin-bottom: 4px;">🔥 New lead qualified: Sarah K. - Solar Installation</div>
+                            <div style="font-size: 14px; margin-bottom: 4px;">📅 Appointment booked: Mike R. - Roofing Estimate</div>
+                            <div style="font-size: 14px;">💰 Sale closed: $47,000 Solar Project</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Real Results from Real Businesses</h2>
+                <p class="section-subtitle">
+                    See how businesses like yours are using AI automation to scale faster and more profitably.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-quote">
+                        "Since implementing Simple Acceleration Systems' AI automation, we've seen a 340% increase in qualified leads 
+                        and our response time went from hours to seconds. The ROI was immediate."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <h4>Mike Rodriguez</h4>
+                            <p>Solar Installation Company</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <p class="testimonial-quote">
+                        "The AI reactivated 47 old leads that generated $2.1M in closed contracts. That's a 1,750% ROI in the first 90 days. 
+                        This technology pays for itself immediately."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Roofing Contractor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <p class="testimonial-quote">
+                        "We eliminated two full-time positions and increased our conversion rate by 60%. The AI handles qualification better 
+                        than humans and never takes a day off."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div class="testimonial-info">
+                            <h4>Jake Thompson</h4>
+                            <p>Home Builder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <p class="testimonial-quote">
+                        "Our after-hours lead capture went from 0% to 95%. We're now closing deals from prospects who contacted us 
+                        at midnight. The 24/7 availability transformed our business."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">L</div>
+                        <div class="testimonial-info">
+                            <h4>Lisa Johnson</h4>
+                            <p>Auto Service Center</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Transform Your Business with AI?</h2>
+                <p>
+                    Get your free AI automation roadmap and discover exactly how to save $47,000+ annually 
+                    while converting more leads than ever before.
+                </p>
+                
+                <div class="hero-ctas">
+                    <a href="tel:6788558576" class="btn btn-primary pulse-glow">
+                        📞 Call (678) 855-8576 Now
+                    </a>
+                    <a href="#testimonials" class="btn btn-secondary">
+                        📊 See Success Stories
+                    </a>
+                </div>
+                
+                <div style="margin-top: 32px; font-size: 14px; color: var(--text-gray);">
+                    ⚡ Free 30-minute consultation • No obligation • Immediate ROI projections
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#features">AI Lead Automation</a></li>
+                        <li><a href="#video-section">Success Stories</a></li>
+                        <li><a href="#testimonials">Client Results</a></li>
+                        <li><a href="#" class="quiz-trigger">Free AI Assessment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Industries We Serve</h4>
+                    <ul>
+                        <li>Solar & Energy Companies</li>
+                        <li>Roofing & Construction</li>
+                        <li>New Home Builders</li>
+                        <li>Automotive Services</li>
+                        <li>Healthcare & Chiropractic</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Get Started Today</h4>
+                    <ul>
+                        <li><a href="tel:6788558576">(678) 855-8576</a></li>
+                        <li><a href="mailto:info@simpleaccelerationsystems.com">info@simpleaccelerationsystems.com</a></li>
+                        <li><a href="#" class="quiz-trigger">🚀 Start Free Assessment</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                © 2025 Simple Acceleration Systems. All rights reserved. • Transforming businesses with AI automation since 2024.
+                <div style="margin-top: 12px;">
+                    <a href="https://goldmineaisystem.pro/privacy" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
+                    <a href="https://goldmineaisystem.pro/terms" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 15, 0.98)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should animate
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Dynamic stats animation
+        function animateStats() {
+            const statValues = document.querySelectorAll('.stat-number, .stat-value');
+            statValues.forEach(stat => {
+                const finalValue = stat.textContent;
+                if (finalValue.includes('%')) {
+                    const number = parseInt(finalValue);
+                    animateNumber(stat, 0, number, '%');
+                } else if (finalValue.includes('s')) {
+                    stat.textContent = finalValue; // Keep as is for time values
+                }
+            });
+        }
+
+        function animateNumber(element, start, end, suffix = '') {
+            const duration = 2000;
+            const startTime = performance.now();
+            
+            function updateNumber(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (end - start) * progress);
+                element.textContent = current + suffix;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+            
+            requestAnimationFrame(updateNumber);
+        }
+
+        // Trigger stats animation when features section is visible
+        const featuresSection = document.querySelector('.features');
+        if (featuresSection) {
+            observer.observe(featuresSection);
+            let statsAnimated = false;
+            
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !statsAnimated) {
+                        setTimeout(animateStats, 500);
+                        statsAnimated = true;
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statsObserver.observe(featuresSection);
+        }
+
+        // Enhanced floating animation for dashboard
+        function enhanceFloating() {
+            const floating = document.querySelector('.floating');
+            if (floating) {
+                let startTime = performance.now();
+                
+                function updateFloating(currentTime) {
+                    const elapsed = (currentTime - startTime) / 1000;
+                    const yOffset = Math.sin(elapsed * 0.5) * 10;
+                    const rotation = Math.sin(elapsed * 0.3) * 2;
+                    
+                    floating.style.transform = `translateY(${yOffset}px) rotate(${rotation}deg)`;
+                    requestAnimationFrame(updateFloating);
+                }
+                
+                requestAnimationFrame(updateFloating);
+            }
+        }
+
+        // Initialize enhanced animations
+        document.addEventListener('DOMContentLoaded', () => {
+            enhanceFloating();
+            
+            // Add stagger effect to cards
+            const cards = document.querySelectorAll('.problem-card, .solution-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Live activity simulation
+        function simulateLiveActivity() {
+            const activities = [
+                "🔥 New lead qualified: Sarah K. - Solar Installation",
+                "📅 Appointment booked: Mike R. - Roofing Estimate", 
+                "💰 Sale closed: $47,000 Solar Project",
+                "🎯 Lead reactivated: Lisa J. - Home Renovation",
+                "📞 Call scheduled: David L. - HVAC Service",
+                "✅ Quote approved: $23,000 Roofing Contract"
+            ];
+            
+            const activityElement = document.querySelector('.features-dashboard [style*="LIVE ACTIVITY"]');
+            if (activityElement) {
+                let currentIndex = 0;
+                
+                setInterval(() => {
+                    const activityList = activityElement.parentElement.querySelectorAll('div:not(:first-child)');
+                    activityList.forEach((item, index) => {
+                        const activityIndex = (currentIndex + index) % activities.length;
+                        item.textContent = activities[activityIndex];
+                    });
+                    currentIndex = (currentIndex + 1) % activities.length;
+                }, 3000);
+            }
+        }
+
+        // Start live activity simulation
+        setTimeout(simulateLiveActivity, 2000);
+
+        // Video interaction functionality
+        function initVideoSection() {
+            const videoCards = document.querySelectorAll('.video-card');
+            
+            videoCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    // Add click tracking for conversion analytics
+                    console.log(`Video ${index + 1} clicked - Conversion tracking event`);
+                    
+                    // Add visual feedback
+                    const playButton = this.querySelector('.play-button');
+                    const originalText = playButton.textContent;
+                    
+                    playButton.textContent = '⏳';
+                    playButton.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                    
+                    // Simulate video loading
+                    setTimeout(() => {
+                        playButton.textContent = '▶';
+                        playButton.style.transform = 'translate(-50%, -50%) scale(1)';
+                        
+                        // In a real implementation, this would open a video modal or redirect
+                        const title = this.querySelector('.video-title').textContent;
+                        alert(`🎬 Opening: "${title}"\n\nThis is a demo placeholder. In production, this would open the actual video player or redirect to your video hosting platform.`);
+                    }, 800);
+                });
+
+                // Add hover analytics tracking
+                card.addEventListener('mouseenter', function() {
+                    console.log(`Video ${index + 1} hovered - Engagement tracking`);
+                });
+            });
+        }
+
+        // Video view tracking for conversion optimization
+        function trackVideoViews() {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        const videoTitle = entry.target.querySelector('.video-title').textContent;
+                        console.log(`Video in view: ${videoTitle} - Conversion funnel tracking`);
+                        
+                        // Add viewed state styling
+                        entry.target.style.borderColor = 'rgba(0, 212, 255, 0.2)';
+                    }
+                });
+            }, {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            document.querySelectorAll('.video-card').forEach(card => {
+                videoObserver.observe(card);
+            });
+        }
+
+        // Initialize video functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initVideoSection();
+            trackVideoViews();
+            
+            // Add video section to navigation scroll
+            const videoSection = document.querySelector('.video-section');
+            if (videoSection) {
+                observer.observe(videoSection);
+            }
+        });
+    </script>
+
+    <!-- ROI Calculator Modal -->
+    <div class="calculator-overlay" id="calculatorOverlay">
+        <div class="calculator-container">
+            <button class="calculator-close" id="calculatorClose">✕</button>
+            
+            <div class="calculator-header">
+                <h2>🧮 Calculate Your AI ROI</h2>
+                <p>See exactly how much revenue you could be generating</p>
+            </div>
+            
+            <div class="calculator-content">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="monthlyLeads">Monthly Leads</label>
+                        <input type="number" id="monthlyLeads" min="1" max="10000" value="100" placeholder="e.g. 100">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currentConversion">Current Conversion Rate (%)</label>
+                        <input type="number" id="currentConversion" min="1" max="100" value="15" placeholder="e.g. 15">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="averageDeal">Average Deal Value ($)</label>
+                        <input type="number" id="averageDeal" min="100" max="1000000" value="25000" placeholder="e.g. 25000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType">
+                            <option value="solar">Solar Installation</option>
+                            <option value="roofing">Roofing</option>
+                            <option value="new-homes">New Home Construction</option>
+                            <option value="auto">Automotive Service</option>
+                            <option value="healthcare">Healthcare/Chiropractic</option>
+                            <option value="other">Other Service Business</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" id="calculateROI" class="btn btn-primary">Calculate My ROI →</button>
+                </div>
+                
+                <div class="calculator-results" id="calculatorResults" style="display: none;">
+                    <h3>Your AI Automation ROI Projection</h3>
+                    <div class="roi-metrics">
+                        <div class="roi-metric">
+                            <div class="metric-value" id="currentRevenue">$0</div>
+                            <div class="metric-label">Current Monthly Revenue</div>
+                        </div>
+                        <div class="roi-metric">
+                            <div class="metric-value" id="projectedRevenue">$0</div>
+                            <div class="metric-label">Projected Monthly Revenue</div>
+                        </div>
+                        <div class="roi-metric">
+                            <div class="metric-value" id="monthlyIncrease">$0</div>
+                            <div class="metric-label">Monthly Increase</div>
+                        </div>
+                        <div class="roi-metric">
+                            <div class="metric-value" id="annualIncrease">$0</div>
+                            <div class="metric-label">Annual Revenue Increase</div>
+                        </div>
+                    </div>
+                    <div class="roi-cta">
+                        <p>Ready to achieve these results? <strong>Let's make it happen.</strong></p>
+                        <button class="btn btn-primary ai-call-trigger">Get My Custom Strategy →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Call Me Modal -->
+    <div class="ai-call-overlay" id="aiCallOverlay">
+        <div class="ai-call-container">
+            <button class="ai-call-close" id="aiCallClose">✕</button>
+            
+            <div class="ai-call-header">
+                <h2>🤖 AI Will Call You in 60 Seconds</h2>
+                <p>Get instant answers to your questions from our AI</p>
+            </div>
+            
+            <div class="ai-call-content">
+                <div class="ai-call-form">
+                    <div class="form-group">
+                        <label for="callName">Your Name</label>
+                        <input type="text" id="callName" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="callPhone">Phone Number</label>
+                        <input type="tel" id="callPhone" placeholder="(555) 123-4567" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="callBusiness">Business Type</label>
+                        <select id="callBusiness">
+                            <option value="">Select your business type</option>
+                            <option value="solar">Solar Installation</option>
+                            <option value="roofing">Roofing</option>
+                            <option value="new-homes">New Home Construction</option>
+                            <option value="auto">Automotive Service</option>
+                            <option value="healthcare">Healthcare/Chiropractic</option>
+                            <option value="other">Other Service Business</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="callQuestion">What would you like to know? (Optional)</label>
+                        <textarea id="callQuestion" placeholder="e.g. How can AI help my solar business capture more leads?"></textarea>
+                    </div>
+                    
+                    <button type="button" id="requestAICall" class="btn btn-primary">Have AI Call Me Now →</button>
+                    
+                    <p class="form-disclaimer">
+                        ⚡ Your AI call will arrive within 60 seconds • No spam, just helpful information
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-overlay" id="quizOverlay">
+        <div class="quiz-container">
+            <button class="quiz-close" id="quizClose">✕</button>
+            
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Step 1 of 7</div>
+            </div>
+
+            <!-- Step 1: Business Type -->
+            <div class="quiz-step active" id="step1">
+                <h3 class="quiz-question">What type of business are you running?</h3>
+                <p class="quiz-subtitle">We'll customize your growth strategy based on your industry.</p>
+                
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="new-homes">
+                        <div class="quiz-option-icon">🏘️</div>
+                        <div class="quiz-option-text">New Home Builder/Developer</div>
+                    </div>
+                    <div class="quiz-option" data-value="solar">
+                        <div class="quiz-option-icon">☀️</div>
+                        <div class="quiz-option-text">Solar Installation Company</div>
+                    </div>
+                    <div class="quiz-option" data-value="roofing">
+                        <div class="quiz-option-icon">🏠</div>
+                        <div class="quiz-option-text">Roofing/Home Improvement</div>
+                    </div>
+                    <div class="quiz-option" data-value="automotive">
+                        <div class="quiz-option-icon">🔧</div>
+                        <div class="quiz-option-text">Automotive Service</div>
+                    </div>
+                    <div class="quiz-option" data-value="healthcare">
+                        <div class="quiz-option-icon">⚕️</div>
+                        <div class="quiz-option-text">Healthcare/Chiropractic</div>
+                    </div>
+                    <div class="quiz-option" data-value="other">
+                        <div class="quiz-option-icon">💼</div>
+                        <div class="quiz-option-text">Other Service Business</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-value-add">
+                    💡 Companies in your industry typically see 40-60% growth with SMS automation
+                </div>
+            </div>
+
+            <!-- Step 2: Current Challenges -->
+            <div class="quiz-step" id="step2">
+                <h3 class="quiz-question">What's holding your business back?</h3>
+                <p class="quiz-subtitle">Select all that apply - the more specific, the better we can help!</p>
+                
+                <div class="quiz-checkbox-grid">
+                    <div class="quiz-checkbox-option" data-value="cold-leads">
+                        Too many leads go cold before contact
+                    </div>
+                    <div class="quiz-checkbox-option" data-value="manual-followup">
+                        Follow-up process is manual and inconsistent
+                    </div>
+                    <div class="quiz-checkbox-option" data-value="no-tracking">
+                        Can't track which marketing is working
+                    </div>
+                    <div class="quiz-checkbox-option" data-value="admin-time">
+                        Team spends too much time on admin tasks
+                    </div>
+                    <div class="quiz-checkbox-option" data-value="slow-response">
+                        Losing deals to faster competitors
+                    </div>
+                    <div class="quiz-checkbox-option" data-value="cant-scale">
+                        Hard to scale without hiring more people
+                    </div>
+                </div>
+                
+                <div class="quiz-humor">
+                    😅 97% of businesses say "we need better follow-up" but only 3% have it figured out!
+                </div>
+            </div>
+
+            <!-- Step 3: Revenue Range -->
+            <div class="quiz-step" id="step3">
+                <h3 class="quiz-question">What's your annual revenue range?</h3>
+                <p class="quiz-subtitle">This helps us recommend the right growth strategy for your stage.</p>
+                
+                <div class="quiz-slider">
+                    <div class="slider-track">
+                        <div class="slider-fill" id="revenueSliderFill"></div>
+                        <div class="slider-thumb" id="revenueSliderThumb"></div>
+                    </div>
+                    <div class="slider-labels">
+                        <span>$50K</span>
+                        <span>$500K</span>
+                        <span>$2M</span>
+                        <span>$10M+</span>
+                    </div>
+                </div>
+                
+                <div class="quiz-value-add" id="revenueInsight">
+                    📊 Companies in your range typically see 40-60% growth with automation
+                </div>
+            </div>
+
+            <!-- Step 4: Lead Volume -->
+            <div class="quiz-step" id="step4">
+                <h3 class="quiz-question">How many leads do you generate per month?</h3>
+                <p class="quiz-subtitle">Include all sources - website, referrals, advertising, etc.</p>
+                
+                <input type="number" class="quiz-input" id="leadVolumeInput" placeholder="Enter number of leads per month" min="0" max="10000">
+                
+                <div class="quiz-value-add" id="leadVolumeInsight">
+                    💰 That's potentially X customers you could recover with better follow-up!
+                </div>
+                
+                <div class="quiz-humor">
+                    🎯 Pro tip: If you said "0 leads/month" - that's called a hobby, not a business!
+                </div>
+            </div>
+
+            <!-- Step 5: Current Process -->
+            <div class="quiz-step" id="step5">
+                <h3 class="quiz-question">How do you currently follow up with leads?</h3>
+                <p class="quiz-subtitle">Be honest - we've seen it all and we don't judge!</p>
+                
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="manual">
+                        <div class="quiz-option-icon">📞</div>
+                        <div class="quiz-option-text">Manually call/email each one</div>
+                    </div>
+                    <div class="quiz-option" data-value="basic-crm">
+                        <div class="quiz-option-icon">💻</div>
+                        <div class="quiz-option-text">Basic CRM with some automation</div>
+                    </div>
+                    <div class="quiz-option" data-value="advanced-crm">
+                        <div class="quiz-option-icon">⚡</div>
+                        <div class="quiz-option-text">Advanced system but not optimized</div>
+                    </div>
+                    <div class="quiz-option" data-value="what-followup">
+                        <div class="quiz-option-icon">🤷</div>
+                        <div class="quiz-option-text">What's follow-up? (We're honest!)</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-humor">
+                    😂 If you picked the last option, you're not alone - and we love your honesty!
+                </div>
+            </div>
+
+            <!-- Step 6: Team Size -->
+            <div class="quiz-step" id="step6">
+                <h3 class="quiz-question">How big is your current team?</h3>
+                <p class="quiz-subtitle">This helps us recommend the right level of automation.</p>
+                
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="solo">
+                        <div class="quiz-option-icon">👤</div>
+                        <div class="quiz-option-text">Just me (Solo entrepreneur)</div>
+                    </div>
+                    <div class="quiz-option" data-value="small">
+                        <div class="quiz-option-icon">👥</div>
+                        <div class="quiz-option-text">2-5 people</div>
+                    </div>
+                    <div class="quiz-option" data-value="medium">
+                        <div class="quiz-option-icon">👨‍👩‍👧‍👦</div>
+                        <div class="quiz-option-text">6-15 people</div>
+                    </div>
+                    <div class="quiz-option" data-value="large">
+                        <div class="quiz-option-icon">🏢</div>
+                        <div class="quiz-option-text">15+ people</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-value-add">
+                    🚀 Smaller teams often see faster ROI because they can implement changes quickly!
+                </div>
+            </div>
+
+            <!-- Step 7: Contact Information -->
+            <div class="quiz-step" id="step7">
+                <h3 class="quiz-question">Get Your Custom AI Strategy Report</h3>
+                <p class="quiz-subtitle">We'll send you a personalized growth plan based on your answers.</p>
+                
+                <input type="text" class="quiz-input" id="firstName" placeholder="First Name" required>
+                <input type="email" class="quiz-input" id="email" placeholder="Email Address" required>
+                <input type="tel" class="quiz-input" id="phone" placeholder="Phone (Optional - for priority scheduling)">
+                
+                <div class="quiz-value-add">
+                    🔒 Your information is 100% secure. We hate spam as much as you do.
+                </div>
+                
+                <div class="quiz-humor">
+                    📧 Fun fact: You're about to get the most personalized business advice you've ever received!
+                </div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button class="quiz-back" id="quizBack" style="visibility: hidden;">← Back</button>
+                <button class="quiz-next" id="quizNext" disabled>Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz functionality
+        class GrowthAssessmentQuiz {
+            constructor() {
+                this.currentStep = 1;
+                this.totalSteps = 7;
+                this.answers = {};
+                this.init();
+            }
+
+            init() {
+                // Event listeners
+                document.getElementById('quizClose').addEventListener('click', () => this.closeQuiz());
+                document.getElementById('quizNext').addEventListener('click', () => this.nextStep());
+                document.getElementById('quizBack').addEventListener('click', () => this.prevStep());
+
+                // Quiz option handlers
+                document.querySelectorAll('.quiz-option').forEach(option => {
+                    option.addEventListener('click', (e) => this.selectOption(e));
+                });
+
+                document.querySelectorAll('.quiz-checkbox-option').forEach(option => {
+                    option.addEventListener('click', (e) => this.toggleCheckbox(e));
+                });
+
+                // Revenue slider
+                this.initRevenueSlider();
+
+                // Lead volume input
+                document.getElementById('leadVolumeInput').addEventListener('input', (e) => {
+                    this.updateLeadVolumeInsight(e.target.value);
+                    this.validateStep();
+                });
+
+                // Contact form inputs
+                ['firstName', 'email', 'phone'].forEach(id => {
+                    document.getElementById(id).addEventListener('input', () => this.validateStep());
+                });
+
+                this.updateProgress();
+            }
+
+            openQuiz() {
+                document.getElementById('quizOverlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Track quiz start
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'quiz_started', {
+                        'event_category': 'engagement',
+                        'event_label': 'growth_assessment'
+                    });
+                }
+            }
+
+            closeQuiz() {
+                document.getElementById('quizOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Track quiz abandonment
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'quiz_abandoned', {
+                        'event_category': 'engagement',
+                        'event_label': 'growth_assessment',
+                        'value': this.currentStep
+                    });
+                }
+            }
+
+            selectOption(e) {
+                const step = e.target.closest('.quiz-step');
+                const allOptions = step.querySelectorAll('.quiz-option');
+                const selectedOption = e.target.closest('.quiz-option');
+
+                allOptions.forEach(opt => opt.classList.remove('selected'));
+                selectedOption.classList.add('selected');
+
+                const stepId = step.id;
+                const value = selectedOption.dataset.value;
+                this.answers[stepId] = value;
+
+                this.validateStep();
+
+                // Auto-progression for single-selection steps (with smooth delay)
+                const isSingleSelection = [1, 5, 6].includes(this.currentStep); // Steps 1, 5, 6 are single-selection
+                if (isSingleSelection && this.validateStep()) {
+                    // Add visual feedback before auto-advancing
+                    selectedOption.style.transform = 'scale(1.02)';
+                    selectedOption.style.boxShadow = '0 8px 32px rgba(0, 102, 255, 0.3)';
+                    
+                    setTimeout(() => {
+                        if (this.currentStep < this.totalSteps) {
+                            this.nextStep();
+                        }
+                    }, 800); // 800ms delay for smooth UX (research-backed optimal timing)
+                }
+            }
+
+            toggleCheckbox(e) {
+                const option = e.target.closest('.quiz-checkbox-option');
+                option.classList.toggle('selected');
+
+                const step = e.target.closest('.quiz-step');
+                const stepId = step.id;
+                const selectedOptions = step.querySelectorAll('.quiz-checkbox-option.selected');
+                
+                this.answers[stepId] = Array.from(selectedOptions).map(opt => opt.dataset.value);
+                this.validateStep();
+            }
+
+            initRevenueSlider() {
+                const thumb = document.getElementById('revenueSliderThumb');
+                const fill = document.getElementById('revenueSliderFill');
+                const track = thumb.parentElement;
+                let isDragging = false;
+
+                const revenueRanges = ['$50K', '$100-500K', '$500K-2M', '$2M-10M', '$10M+'];
+                const revenueValues = [50000, 300000, 1250000, 6000000, 10000000];
+
+                thumb.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+
+                    const rect = track.getBoundingClientRect();
+                    const percentage = Math.max(0, Math.min(100, (e.clientX - rect.left) / rect.width * 100));
+                    
+                    thumb.style.left = percentage + '%';
+                    fill.style.width = percentage + '%';
+
+                    const rangeIndex = Math.floor(percentage / 25);
+                    const clampedIndex = Math.max(0, Math.min(revenueRanges.length - 1, rangeIndex));
+                    
+                    this.answers.step3 = revenueValues[clampedIndex];
+                    document.getElementById('revenueInsight').textContent = 
+                        `📊 Companies earning ${revenueRanges[clampedIndex]} typically see 40-60% growth with automation`;
+                    
+                    this.validateStep();
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                // Touch events for mobile
+                thumb.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    
+                    const touch = e.touches[0];
+                    const rect = track.getBoundingClientRect();
+                    const percentage = Math.max(0, Math.min(100, (touch.clientX - rect.left) / rect.width * 100));
+                    
+                    thumb.style.left = percentage + '%';
+                    fill.style.width = percentage + '%';
+
+                    const rangeIndex = Math.floor(percentage / 25);
+                    const clampedIndex = Math.max(0, Math.min(revenueRanges.length - 1, rangeIndex));
+                    
+                    this.answers.step3 = revenueValues[clampedIndex];
+                    document.getElementById('revenueInsight').textContent = 
+                        `📊 Companies earning ${revenueRanges[clampedIndex]} typically see 40-60% growth with automation`;
+                    
+                    this.validateStep();
+                });
+
+                document.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+            }
+
+            updateLeadVolumeInsight(value) {
+                const leads = parseInt(value) || 0;
+                const potentialRecovery = Math.floor(leads * 0.6); // Assume 60% could be better followed up
+                document.getElementById('leadVolumeInsight').textContent = 
+                    `💰 That's potentially ${potentialRecovery} more customers you could recover with better follow-up!`;
+            }
+
+            validateStep() {
+                const step = document.getElementById(`step${this.currentStep}`);
+                let isValid = false;
+
+                switch (this.currentStep) {
+                    case 1:
+                    case 5:
+                    case 6:
+                        isValid = step.querySelector('.quiz-option.selected') !== null;
+                        break;
+                    case 2:
+                        isValid = step.querySelectorAll('.quiz-checkbox-option.selected').length > 0;
+                        break;
+                    case 3:
+                        isValid = this.answers.step3 !== undefined;
+                        break;
+                    case 4:
+                        const leadInput = document.getElementById('leadVolumeInput');
+                        isValid = leadInput.value && parseInt(leadInput.value) >= 0;
+                        if (isValid) this.answers.step4 = parseInt(leadInput.value);
+                        break;
+                    case 7:
+                        const firstName = document.getElementById('firstName').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        isValid = firstName && emailRegex.test(email);
+                        break;
+                }
+
+                document.getElementById('quizNext').disabled = !isValid;
+                return isValid;
+            }
+
+            nextStep() {
+                if (this.currentStep < this.totalSteps) {
+                    // Capture current step data
+                    this.captureStepData();
+                    
+                    document.getElementById(`step${this.currentStep}`).classList.remove('active');
+                    this.currentStep++;
+                    document.getElementById(`step${this.currentStep}`).classList.add('active');
+                    
+                    this.updateProgress();
+                    this.updateNavigation();
+                    this.validateStep();
+
+                    // Track step completion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'quiz_step_completed', {
+                            'event_category': 'engagement',
+                            'step_number': this.currentStep - 1
+                        });
+                    }
+                } else {
+                    this.submitQuiz();
+                }
+            }
+
+            prevStep() {
+                if (this.currentStep > 1) {
+                    document.getElementById(`step${this.currentStep}`).classList.remove('active');
+                    this.currentStep--;
+                    document.getElementById(`step${this.currentStep}`).classList.add('active');
+                    
+                    this.updateProgress();
+                    this.updateNavigation();
+                    this.validateStep();
+                }
+            }
+
+            updateProgress() {
+                const percentage = (this.currentStep / this.totalSteps) * 100;
+                document.getElementById('progressFill').style.width = percentage + '%';
+                document.getElementById('progressText').textContent = `Step ${this.currentStep} of ${this.totalSteps}`;
+            }
+
+            updateNavigation() {
+                const backBtn = document.getElementById('quizBack');
+                const nextBtn = document.getElementById('quizNext');
+
+                backBtn.style.visibility = this.currentStep > 1 ? 'visible' : 'hidden';
+                nextBtn.textContent = this.currentStep === this.totalSteps ? 'Get My Strategy →' : 'Next →';
+            }
+
+            captureStepData() {
+                switch (this.currentStep) {
+                    case 7:
+                        this.answers.firstName = document.getElementById('firstName').value;
+                        this.answers.email = document.getElementById('email').value;
+                        this.answers.phone = document.getElementById('phone').value;
+                        break;
+                }
+            }
+
+            calculateAIReadinessAndROI() {
+                // Advanced AI Readiness Scoring (0-100)
+                let readinessScore = 0;
+                let roiData = {
+                    annualSavings: 0,
+                    timeSavedHours: 0,
+                    conversionImprovement: 0,
+                    leadResponseImprovement: 0,
+                    paybackMonths: 0
+                };
+
+                // Business Type Analysis (25% weight)
+                const businessMetrics = {
+                    'new-homes': { 
+                        score: 25, 
+                        avgDealValue: 500000, 
+                        conversionBaseline: 15, 
+                        responseTime: 240,
+                        laborCostPerHour: 35
+                    },
+                    'solar': { 
+                        score: 23, 
+                        avgDealValue: 50000, 
+                        conversionBaseline: 18, 
+                        responseTime: 120,
+                        laborCostPerHour: 30
+                    },
+                    'roofing': { 
+                        score: 22, 
+                        avgDealValue: 15000, 
+                        conversionBaseline: 20, 
+                        responseTime: 90,
+                        laborCostPerHour: 28
+                    },
+                    'automotive': { 
+                        score: 18, 
+                        avgDealValue: 3000, 
+                        conversionBaseline: 25, 
+                        responseTime: 60,
+                        laborCostPerHour: 25
+                    },
+                    'healthcare': { 
+                        score: 20, 
+                        avgDealValue: 2000, 
+                        conversionBaseline: 30, 
+                        responseTime: 45,
+                        laborCostPerHour: 40
+                    },
+                    'other': { 
+                        score: 15, 
+                        avgDealValue: 5000, 
+                        conversionBaseline: 22, 
+                        responseTime: 120,
+                        laborCostPerHour: 25
+                    }
+                };
+
+                const businessType = businessMetrics[this.answers.step1] || businessMetrics['other'];
+                readinessScore += businessType.score;
+
+                // Current Process Maturity (25% weight)
+                const processScores = {
+                    'manual': { score: 25, manualHoursPerDay: 6, efficiency: 40 },
+                    'basic-crm': { score: 18, manualHoursPerDay: 4, efficiency: 60 },
+                    'advanced-crm': { score: 12, manualHoursPerDay: 2, efficiency: 75 },
+                    'what-followup': { score: 25, manualHoursPerDay: 8, efficiency: 20 }
+                };
+                const currentProcess = processScores[this.answers.step5] || processScores['manual'];
+                readinessScore += currentProcess.score;
+
+                // Revenue Scale Impact (15% weight)
+                const revenue = this.answers.step3 || 100000;
+                if (revenue >= 2000000) readinessScore += 15;
+                else if (revenue >= 500000) readinessScore += 12;
+                else if (revenue >= 100000) readinessScore += 8;
+                else readinessScore += 5;
+
+                // Lead Volume Opportunity (20% weight)
+                const leadVolume = this.answers.step4 || 20;
+                if (leadVolume >= 100) readinessScore += 20;
+                else if (leadVolume >= 50) readinessScore += 15;
+                else if (leadVolume >= 20) readinessScore += 10;
+                else readinessScore += 5;
+
+                // Challenge Complexity (15% weight)
+                const challenges = this.answers.step2 || [];
+                readinessScore += Math.min(15, challenges.length * 2.5);
+
+                // ROI Calculations
+                const monthlyLeads = leadVolume;
+                const avgDealValue = businessType.avgDealValue;
+                
+                // Current monthly revenue estimate
+                const currentConversionRate = businessType.conversionBaseline / 100;
+                const currentMonthlyRevenue = monthlyLeads * currentConversionRate * avgDealValue;
+                
+                // AI-improved metrics (conservative estimates based on industry data)
+                const improvedConversionRate = Math.min(0.45, currentConversionRate * 2.2); // 2.2x improvement, capped at 45%
+                const improvedMonthlyRevenue = monthlyLeads * improvedConversionRate * avgDealValue;
+                
+                // Annual calculations
+                roiData.annualSavings = (improvedMonthlyRevenue - currentMonthlyRevenue) * 12;
+                roiData.conversionImprovement = ((improvedConversionRate - currentConversionRate) / currentConversionRate * 100);
+                
+                // Time savings calculation
+                const hoursPerLeadCurrently = currentProcess.manualHoursPerDay / monthlyLeads || 0.2;
+                const hoursPerLeadWithAI = hoursPerLeadCurrently * 0.15; // 85% reduction
+                roiData.timeSavedHours = (hoursPerLeadCurrently - hoursPerLeadWithAI) * monthlyLeads * 12;
+                
+                // Labor cost savings
+                const laborSavings = roiData.timeSavedHours * businessType.laborCostPerHour;
+                roiData.annualSavings += laborSavings;
+                
+                // Response time improvement
+                roiData.leadResponseImprovement = businessType.responseTime; // Minutes to <60 seconds
+                
+                // Payback calculation (assuming $3,000/month investment)
+                const monthlyInvestment = 3000;
+                roiData.paybackMonths = (monthlyInvestment * 12) / roiData.annualSavings * 12;
+
+                return {
+                    readinessScore: Math.min(100, Math.round(readinessScore)),
+                    roiData: roiData,
+                    businessType: this.answers.step1,
+                    leadVolume: leadVolume,
+                    currentProcess: this.answers.step5
+                };
+            }
+
+            async submitQuiz() {
+                const aiAnalysis = this.calculateAIReadinessAndROI();
+                
+                const submissionData = {
+                    ...this.answers,
+                    aiReadinessScore: aiAnalysis.readinessScore,
+                    roiProjection: aiAnalysis.roiData,
+                    submissionDate: new Date().toISOString(),
+                    source: 'ai_powerhouse_quiz'
+                };
+
+                try {
+                    // Here you would normally send to your backend
+                    console.log('AI Assessment Results:', submissionData);
+                    
+                    // Track completion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'quiz_completed', {
+                            'event_category': 'conversion',
+                            'event_label': 'ai_assessment',
+                            'value': aiAnalysis.readinessScore
+                        });
+                    }
+
+                    // Show personalized results page
+                    this.showAIResultsPage(aiAnalysis);
+                    
+                } catch (error) {
+                    console.error('Quiz submission error:', error);
+                    alert('There was an error generating your AI assessment. Please try again or call us directly.');
+                }
+            }
+
+            showAIResultsPage(analysis) {
+                const { readinessScore, roiData, businessType, leadVolume } = analysis;
+                
+                // Format numbers for display
+                const formatMoney = (amount) => new Intl.NumberFormat('en-US', { 
+                    style: 'currency', 
+                    currency: 'USD',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(amount);
+                
+                const formatNumber = (num) => new Intl.NumberFormat('en-US').format(Math.round(num));
+                
+                // Determine readiness level and messaging
+                let readinessLevel, readinessMessage, readinessColor;
+                if (readinessScore >= 80) {
+                    readinessLevel = "EXTREMELY HIGH";
+                    readinessMessage = "Your business is primed for massive AI transformation!";
+                    readinessColor = "#10b981";
+                } else if (readinessScore >= 60) {
+                    readinessLevel = "HIGH";
+                    readinessMessage = "Perfect candidate for AI automation implementation.";
+                    readinessColor = "#06b6d4";
+                } else if (readinessScore >= 40) {
+                    readinessLevel = "MODERATE";
+                    readinessMessage = "Great potential with structured AI implementation.";
+                    readinessColor = "#f59e0b";
+                } else {
+                    readinessLevel = "DEVELOPING";
+                    readinessMessage = "Foundation building will maximize your AI success.";
+                    readinessColor = "#8b5cf6";
+                }
+
+                document.querySelector('.quiz-container').innerHTML = `
+                    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+                        <!-- Header -->
+                        <div style="text-align: center; margin-bottom: 40px;">
+                            <h2 style="color: var(--accent-cyan); margin-bottom: 16px; font-size: 28px;">
+                                🎯 Your AI Readiness Assessment
+                            </h2>
+                            <p style="color: var(--text-gray); font-size: 16px;">
+                                Based on your responses, here's your personalized growth projection
+                            </p>
+                        </div>
+
+                        <!-- AI Readiness Score -->
+                        <div style="background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 30px; margin-bottom: 24px; text-align: center;">
+                            <div style="margin-bottom: 20px;">
+                                <div style="width: 120px; height: 120px; margin: 0 auto; border-radius: 50%; background: conic-gradient(${readinessColor} ${readinessScore * 3.6}deg, var(--card-bg) 0deg); display: flex; align-items: center; justify-content: center;">
+                                    <div style="width: 90px; height: 90px; background: var(--secondary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                        <span style="font-size: 32px; font-weight: bold; color: ${readinessColor};">${readinessScore}</span>
+                                        <span style="font-size: 12px; color: var(--text-gray);">/ 100</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 style="color: ${readinessColor}; margin-bottom: 8px;">AI READINESS: ${readinessLevel}</h3>
+                            <p style="color: var(--text-light); font-size: 14px;">${readinessMessage}</p>
+                        </div>
+
+                        <!-- ROI Projections -->
+                        <div style="background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 30px; margin-bottom: 24px;">
+                            <h3 style="color: var(--accent-cyan); margin-bottom: 20px; text-align: center;">
+                                💰 Your Projected ROI
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                                <div style="text-align: center; padding: 16px; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                                    <div style="font-size: 24px; font-weight: bold; color: #10b981;">${formatMoney(roiData.annualSavings)}</div>
+                                    <div style="font-size: 12px; color: var(--text-gray);">Annual Revenue Increase</div>
+                                </div>
+                                <div style="text-align: center; padding: 16px; background: rgba(0, 212, 255, 0.1); border-radius: 8px;">
+                                    <div style="font-size: 24px; font-weight: bold; color: #00d4ff;">${formatNumber(roiData.timeSavedHours)}</div>
+                                    <div style="font-size: 12px; color: var(--text-gray);">Hours Saved Annually</div>
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <div style="text-align: center; padding: 16px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                                    <div style="font-size: 24px; font-weight: bold; color: #8b5cf6;">+${Math.round(roiData.conversionImprovement)}%</div>
+                                    <div style="font-size: 12px; color: var(--text-gray);">Conversion Improvement</div>
+                                </div>
+                                <div style="text-align: center; padding: 16px; background: rgba(245, 158, 11, 0.1); border-radius: 8px;">
+                                    <div style="font-size: 24px; font-weight: bold; color: #f59e0b;">${Math.max(1, Math.round(roiData.paybackMonths))}</div>
+                                    <div style="font-size: 12px; color: var(--text-gray);">Months to ROI</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Insights -->
+                        <div style="background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 30px; margin-bottom: 24px;">
+                            <h3 style="color: var(--accent-cyan); margin-bottom: 16px;">🎯 Key Insights for Your Business</h3>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
+                                    <span style="position: absolute; left: 0; color: #10b981;">✅</span>
+                                    <span style="color: var(--text-light); font-size: 14px;">Response time improvement: ${Math.round(roiData.leadResponseImprovement / 60)} hours → 60 seconds</span>
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
+                                    <span style="position: absolute; left: 0; color: #10b981;">✅</span>
+                                    <span style="color: var(--text-light); font-size: 14px;">Monthly lead volume: ${leadVolume} leads optimized for maximum conversion</span>
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
+                                    <span style="position: absolute; left: 0; color: #10b981;">✅</span>
+                                    <span style="color: var(--text-light); font-size: 14px;">Labor efficiency: 85% reduction in manual follow-up tasks</span>
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
+                                    <span style="position: absolute; left: 0; color: #10b981;">✅</span>
+                                    <span style="color: var(--text-light); font-size: 14px;">24/7 lead nurturing: Never miss another opportunity</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- CTA Section -->
+                        <div style="text-align: center; padding: 20px 0;">
+                            <h3 style="color: var(--text-white); margin-bottom: 16px;">Ready to Implement Your AI Strategy?</h3>
+                            <p style="color: var(--text-gray); margin-bottom: 24px; font-size: 14px;">
+                                Book a strategy call to discuss your custom implementation plan
+                            </p>
+                            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                                <button class="btn btn-primary" onclick="quizInstance.openCalendar()" style="padding: 12px 32px; font-size: 16px;">
+                                    📅 Book Strategy Call
+                                </button>
+                                <a href="tel:6788558576" class="btn btn-secondary" style="padding: 12px 32px;">
+                                    📞 Call Now: (678) 855-8576
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Trust Signals -->
+                        <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+                            <p style="color: var(--text-gray); font-size: 12px;">
+                                🔒 Your data is secure • 📈 Results guaranteed • ⚡ Implementation in 7-14 days
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            openCalendar() {
+                document.querySelector('.quiz-container').innerHTML = `
+                    <div style="max-width: 700px; margin: 0 auto; padding: 20px;">
+                        <!-- Calendar Header -->
+                        <div style="text-align: center; margin-bottom: 40px;">
+                            <h2 style="color: var(--accent-cyan); margin-bottom: 16px; font-size: 28px;">
+                                📅 Book Your Strategy Call
+                            </h2>
+                            <p style="color: var(--text-gray); font-size: 16px;">
+                                Choose your preferred time for a 30-minute strategy session
+                            </p>
+                        </div>
+
+                        <!-- Calendar Widget -->
+                        <div id="calendarWidget" style="background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 30px; margin-bottom: 24px;">
+                            <div class="calendar-container">
+                                <!-- Calendar Navigation -->
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                                    <button class="calendar-nav-btn" onclick="quizInstance.changeMonth(-1)" style="background: none; border: 1px solid var(--border-dark); color: var(--text-white); padding: 8px 12px; border-radius: 8px; cursor: pointer;">‹</button>
+                                    <h3 id="calendarMonth" style="color: var(--text-white); margin: 0;"></h3>
+                                    <button class="calendar-nav-btn" onclick="quizInstance.changeMonth(1)" style="background: none; border: 1px solid var(--border-dark); color: var(--text-white); padding: 8px 12px; border-radius: 8px; cursor: pointer;">›</button>
+                                </div>
+
+                                <!-- Calendar Grid -->
+                                <div class="calendar-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 24px;">
+                                    <div style="text-align: center; color: var(--text-gray); font-weight: 600; padding: 8px; font-size: 12px;">Sun</div>
+                                    <div style="text-align: center; color: var(--text-gray); font-weight: 600; padding: 8px; font-size: 12px;">Mon</div>
+                                    <div style="text-align: center; color: var(--text-gray); font-weight: 600; padding: 8px; font-size: 12px;">Tue</div>
+                                    <div style="text-align: center; color: var(--text-gray); font-weight: 600; padding: 8px; font-size: 12px;">Wed</div>
+                                    <div style="text-align: center; color: var(--text-gray); font-weight: 600; padding: 8px; font-size: 12px;">Thu</div>
+                                    <div style="text-align: center; color: var(--text-gray); font-weight: 600; padding: 8px; font-size: 12px;">Fri</div>
+                                    <div style="text-align: center; color: var(--text-gray); font-weight: 600; padding: 8px; font-size: 12px;">Sat</div>
+                                </div>
+
+                                <!-- Calendar Days (will be generated by JavaScript) -->
+                                <div id="calendarDays" class="calendar-days" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 24px;"></div>
+
+                                <!-- Time Slots -->
+                                <div id="timeSlots" style="display: none;">
+                                    <h4 style="color: var(--text-white); margin-bottom: 16px; text-align: center;">Available Times</h4>
+                                    <div class="time-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;" id="timeGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Meeting Details Form -->
+                        <div id="meetingForm" style="display: none; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 30px; margin-bottom: 24px;">
+                            <h3 style="color: var(--accent-cyan); margin-bottom: 20px; text-align: center;">
+                                📝 Confirm Your Strategy Session
+                            </h3>
+                            
+                            <div style="margin-bottom: 16px;">
+                                <label style="color: var(--text-light); margin-bottom: 8px; display: block;">Meeting Type</label>
+                                <select id="meetingType" style="width: 100%; background: var(--secondary-dark); border: 1px solid var(--border-dark); border-radius: 8px; padding: 12px; color: var(--text-white);">
+                                    <option value="strategy">Strategy Session (30 min) - FREE</option>
+                                    <option value="deep-dive">Deep Dive Analysis (60 min) - FREE</option>
+                                </select>
+                            </div>
+
+                            <div style="margin-bottom: 16px;">
+                                <label style="color: var(--text-light); margin-bottom: 8px; display: block;">Preferred Communication</label>
+                                <select id="communicationType" style="width: 100%; background: var(--secondary-dark); border: 1px solid var(--border-dark); border-radius: 8px; padding: 12px; color: var(--text-white);">
+                                    <option value="phone">Phone Call</option>
+                                    <option value="zoom">Zoom Video Call</option>
+                                    <option value="teams">Microsoft Teams</option>
+                                </select>
+                            </div>
+
+                            <div style="margin-bottom: 24px;">
+                                <label style="color: var(--text-light); margin-bottom: 8px; display: block;">Additional Notes (Optional)</label>
+                                <textarea id="meetingNotes" placeholder="Any specific questions or topics you'd like to discuss?" style="width: 100%; height: 100px; background: var(--secondary-dark); border: 1px solid var(--border-dark); border-radius: 8px; padding: 12px; color: var(--text-white); resize: vertical;"></textarea>
+                            </div>
+
+                            <div style="text-align: center;">
+                                <button onclick="quizInstance.confirmBooking()" class="btn btn-primary" style="padding: 12px 32px; font-size: 16px;">
+                                    ✅ Confirm My Strategy Session
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Back Button -->
+                        <div style="text-align: center;">
+                            <button onclick="quizInstance.showAIResultsPage(quizInstance.lastAnalysis)" class="btn btn-secondary" style="padding: 8px 24px;">
+                                ← Back to Results
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                // Store analysis for back navigation
+                this.lastAnalysis = arguments[0] || this.lastAnalysis;
+                
+                // Initialize calendar
+                this.initializeCalendar();
+            }
+
+            initializeCalendar() {
+                this.currentDate = new Date();
+                this.selectedDate = null;
+                this.selectedTime = null;
+                this.selectedSlotTime = null; // Exact ISO timestamp from GHL
+                this.availableSlots = []; // Slots from GHL calendar API
+                this.renderCalendar();
+            }
+
+            renderCalendar() {
+                const year = this.currentDate.getFullYear();
+                const month = this.currentDate.getMonth();
+                
+                // Update month header
+                const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                document.getElementById('calendarMonth').textContent = `${monthNames[month]} ${year}`;
+                
+                // Generate calendar days
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const today = new Date();
+                
+                let daysHTML = '';
+                
+                // Empty cells for days before month starts
+                for (let i = 0; i < firstDay; i++) {
+                    daysHTML += '<div></div>';
+                }
+                
+                // Days of the month
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const date = new Date(year, month, day);
+                    const isToday = date.toDateString() === today.toDateString();
+                    const isPast = date < today && !isToday;
+                    const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+                    
+                    let dayClass = 'calendar-day';
+                    let style = 'text-align: center; padding: 12px 8px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; min-height: 44px; display: flex; align-items: center; justify-content: center;';
+                    
+                    if (isPast) {
+                        style += 'color: var(--text-gray); opacity: 0.5; cursor: not-allowed;';
+                    } else if (isWeekend) {
+                        style += 'color: var(--text-gray); opacity: 0.7;';
+                    } else {
+                        style += 'color: var(--text-white); border: 1px solid var(--border-dark);';
+                        style += 'background: var(--card-bg);';
+                    }
+                    
+                    if (isToday) {
+                        style += 'border-color: var(--accent-cyan); background: rgba(0, 212, 255, 0.1);';
+                    }
+                    
+                    const clickHandler = isPast || isWeekend ? '' : `onclick="quizInstance.selectDate(${year}, ${month}, ${day})"`;
+                    
+                    daysHTML += `<div class="${dayClass}" style="${style}" ${clickHandler}>${day}</div>`;
+                }
+                
+                document.getElementById('calendarDays').innerHTML = daysHTML;
+            }
+
+            selectDate(year, month, day) {
+                this.selectedDate = new Date(year, month, day);
+                
+                // Update visual selection
+                document.querySelectorAll('.calendar-day').forEach(dayEl => {
+                    if (parseInt(dayEl.textContent) === day) {
+                        dayEl.style.background = 'var(--gradient-main)';
+                        dayEl.style.borderColor = 'var(--accent-blue)';
+                        dayEl.style.transform = 'scale(1.05)';
+                    }
+                });
+                
+                // Show time slots
+                this.showTimeSlots();
+            }
+
+            async showTimeSlots() {
+                const timeGrid = document.getElementById('timeGrid');
+                const timeSlotsContainer = document.getElementById('timeSlots');
+
+                // Show loading state
+                timeGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 20px; color: var(--text-gray);">
+                        <span style="animation: pulse 1.5s ease-in-out infinite;">Loading available times...</span>
+                    </div>
+                `;
+                timeSlotsContainer.style.display = 'block';
+
+                try {
+                    // Fetch real available slots from GHL Calendar
+                    const selectedDateStr = this.selectedDate.toISOString().split('T')[0]; // YYYY-MM-DD
+                    const startOfDay = new Date(this.selectedDate);
+                    startOfDay.setHours(0, 0, 0, 0);
+                    const endOfDay = new Date(this.selectedDate);
+                    endOfDay.setHours(23, 59, 59, 999);
+
+                    const response = await fetch(`/api/ghl-calendar-slots?startDate=${startOfDay.getTime()}&endDate=${endOfDay.getTime()}`);
+                    const result = await response.json();
+
+                    if (!result.success) {
+                        throw new Error(result.error || 'Failed to fetch available times');
+                    }
+
+                    // Extract slots for the selected date
+                    const slotsData = result.slots || {};
+                    const dateSlots = slotsData[selectedDateStr]?.slots || [];
+
+                    if (dateSlots.length === 0) {
+                        timeGrid.innerHTML = `
+                            <div style="grid-column: 1/-1; text-align: center; padding: 20px; color: var(--text-gray);">
+                                No available times on this date. Please select another day.
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    // Store slots for later use
+                    this.availableSlots = dateSlots;
+
+                    // Format slots for display
+                    let timeSlotsHTML = '';
+                    dateSlots.forEach((slotTime, index) => {
+                        const slotDate = new Date(slotTime);
+                        const displayTime = slotDate.toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true
+                        });
+
+                        timeSlotsHTML += `
+                            <div class="time-slot" data-slot-index="${index}" onclick="quizInstance.selectTime('${displayTime}', '${slotTime}')"
+                                 style="text-align: center; padding: 12px; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 8px; cursor: pointer; transition: all 0.3s ease; color: var(--text-white);">
+                                ${displayTime}
+                            </div>
+                        `;
+                    });
+
+                    timeGrid.innerHTML = timeSlotsHTML;
+
+                } catch (error) {
+                    console.error('Error fetching time slots:', error);
+                    timeGrid.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 20px; color: var(--accent-magenta);">
+                            Unable to load available times. Please try again.
+                        </div>
+                    `;
+                }
+
+                // Smooth scroll to time slots
+                timeSlotsContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            selectTime(time, slotTime) {
+                this.selectedTime = time;
+                this.selectedSlotTime = slotTime; // Store the exact ISO timestamp for API call
+
+                // Update visual selection
+                document.querySelectorAll('.time-slot').forEach(slot => {
+                    if (slot.textContent.trim() === time) {
+                        slot.style.background = 'var(--gradient-main)';
+                        slot.style.transform = 'scale(1.05)';
+                    } else {
+                        slot.style.background = 'var(--card-bg)';
+                        slot.style.transform = 'scale(1)';
+                    }
+                });
+
+                // Book appointment directly after time selection
+                setTimeout(() => {
+                    this.confirmBooking();
+                }, 300);
+            }
+
+            changeMonth(delta) {
+                this.currentDate.setMonth(this.currentDate.getMonth() + delta);
+                this.renderCalendar();
+                
+                // Hide time slots when changing month
+                document.getElementById('timeSlots').style.display = 'none';
+                document.getElementById('meetingForm').style.display = 'none';
+            }
+
+            async confirmBooking() {
+                // Default values - 30 min Zoom call, no extra notes
+                const meetingType = '30';
+                const communicationType = 'zoom';
+                const notes = '';
+
+                // Ensure we have a contactId - create contact if missing
+                let contactId = this.ghlContactId;
+
+                if (!contactId) {
+                    console.log('⚠️ ContactId missing, creating contact now...');
+                    try {
+                        const contactResponse = await fetch('/api/ghl-contact', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                firstName: this.answers.firstName || 'Quiz',
+                                lastName: this.answers.lastName || 'Lead',
+                                email: this.answers.email,
+                                phone: this.answers.phone,
+                                website: this.answers.website || '',
+                                quizData: {
+                                    step1: this.answers.step1,
+                                    step2: this.answers.step2,
+                                    step3: this.answers.step3,
+                                    step4: this.answers.step4,
+                                    step5: this.answers.step5,
+                                    step6: this.answers.step6
+                                }
+                            })
+                        });
+                        const contactResult = await contactResponse.json();
+                        if (contactResult.success && contactResult.contactId) {
+                            contactId = contactResult.contactId;
+                            this.ghlContactId = contactId;
+                            console.log('✅ Contact created for booking:', contactId);
+                        } else {
+                            console.error('Failed to create contact:', contactResult.error);
+                        }
+                    } catch (contactError) {
+                        console.error('Error creating contact:', contactError);
+                    }
+                }
+
+                const bookingData = {
+                    contactId: contactId,
+                    slotTime: this.selectedSlotTime, // Exact ISO timestamp from GHL free-slots API
+                    type: meetingType,
+                    communication: communicationType,
+                    notes: notes,
+                    contact: {
+                        name: this.answers.firstName,
+                        email: this.answers.email,
+                        phone: this.answers.phone
+                    },
+                    aiAssessment: this.lastAnalysis
+                };
+
+                console.log('Creating appointment in GHL...', bookingData);
+
+                try {
+                    // Send to GoHighLevel Calendar API
+                    const calendarResponse = await fetch('/api/ghl-calendar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(bookingData)
+                    });
+
+                    const calendarResult = await calendarResponse.json();
+
+                    if (!calendarResult.success) {
+                        console.error('GHL Calendar API Error:', calendarResult.error);
+                        alert('Your information was saved, but there was an issue scheduling the appointment. We\'ll contact you shortly to confirm your time.');
+                    } else {
+                        console.log('✅ Appointment created in GHL:', calendarResult.appointmentId);
+                    }
+
+                    // Track booking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'calendar_booking', {
+                            'event_category': 'conversion',
+                            'event_label': 'strategy_call',
+                            'value': 1,
+                            'ghl_success': calendarResult.success
+                        });
+                    }
+
+                    // Show confirmation
+                    this.showBookingConfirmation(bookingData);
+
+                } catch (error) {
+                    console.error('Booking Error:', error);
+                    alert('There was an issue processing your booking. Please try again or call us directly.');
+                }
+            }
+
+            showBookingConfirmation(bookingData) {
+                // Format date and time from the selected slot
+                const slotDate = new Date(this.selectedSlotTime);
+                const formattedDate = slotDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                const formattedTime = slotDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+
+                document.querySelector('.quiz-container').innerHTML = `
+                    <div style="max-width: 500px; margin: 0 auto; padding: 40px 20px; text-align: center;">
+                        <div style="margin-bottom: 30px;">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px;">
+                                ✅
+                            </div>
+                            <h2 style="color: var(--accent-cyan); margin-bottom: 16px; font-size: 28px;">
+                                Your Strategy Call is Confirmed!
+                            </h2>
+                            <p style="color: var(--text-gray); font-size: 16px;">
+                                We're excited to help you implement AI automation in your business.
+                            </p>
+                        </div>
+
+                        <div style="background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 24px; margin-bottom: 30px; text-align: left;">
+                            <h3 style="color: var(--text-white); margin-bottom: 16px;">📅 Meeting Details</h3>
+                            <div style="color: var(--text-gray); font-size: 14px; line-height: 1.8;">
+                                <strong>Date:</strong> ${formattedDate}<br>
+                                <strong>Time:</strong> ${formattedTime}<br>
+                                <strong>Type:</strong> Strategy Session (30 min)<br>
+                                <strong>Method:</strong> Zoom Meeting<br>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; border-radius: 12px; padding: 20px; margin-bottom: 30px;">
+                            <h4 style="color: #10b981; margin-bottom: 12px;">What to Expect:</h4>
+                            <ul style="color: var(--text-light); font-size: 14px; text-align: left; padding-left: 20px;">
+                                <li>Custom AI implementation roadmap</li>
+                                <li>ROI projections specific to your business</li>
+                                <li>Technical requirements and timeline</li>
+                                <li>Immediate next steps</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <p style="color: var(--text-gray); font-size: 14px; margin-bottom: 16px;">
+                                You'll receive a calendar invite and reminder emails.
+                            </p>
+                            <a href="tel:6788558576" class="btn btn-primary" style="padding: 12px 32px;">
+                                📞 Questions? Call (678) 855-8576
+                            </a>
+                        </div>
+
+                        <div style="padding-top: 20px; border-top: 1px solid var(--border-dark);">
+                            <p style="color: var(--text-gray); font-size: 12px;">
+                                🔒 Your calendar invite will arrive within 5 minutes
+                            </p>
+                        </div>
+                    </div>
+                `;
+                
+                // Auto-close modal after extended time for booking confirmation
+                setTimeout(() => {
+                    this.closeQuiz();
+                }, 15000);
+            }
+        }
+
+        // Initialize quiz
+        const quizInstance = new GrowthAssessmentQuiz();
+
+        // ROI Calculator Functionality
+        class ROICalculator {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                const calculateBtn = document.getElementById('calculateROI');
+                if (calculateBtn) {
+                    calculateBtn.addEventListener('click', () => this.calculateROI());
+                }
+            }
+
+            calculateROI() {
+                const monthlyLeads = parseInt(document.getElementById('monthlyLeads').value) || 100;
+                const currentConversion = parseFloat(document.getElementById('currentConversion').value) || 15;
+                const averageDeal = parseInt(document.getElementById('averageDeal').value) || 25000;
+                const businessType = document.getElementById('businessType').value || 'solar';
+
+                // Industry-specific improvement multipliers
+                const industryMultipliers = {
+                    'solar': { improvement: 2.2, baseline: 18 },
+                    'roofing': { improvement: 2.4, baseline: 20 },
+                    'new-homes': { improvement: 2.0, baseline: 15 },
+                    'auto': { improvement: 2.6, baseline: 25 },
+                    'healthcare': { improvement: 2.8, baseline: 30 },
+                    'other': { improvement: 2.2, baseline: 18 }
+                };
+
+                const multiplier = industryMultipliers[businessType];
+                
+                // Current performance
+                const currentConversions = Math.round(monthlyLeads * (currentConversion / 100));
+                const currentRevenue = currentConversions * averageDeal;
+
+                // Projected performance with AI
+                const improvedConversion = Math.min(currentConversion * multiplier.improvement, 85); // Cap at 85%
+                const projectedConversions = Math.round(monthlyLeads * (improvedConversion / 100));
+                const projectedRevenue = projectedConversions * averageDeal;
+
+                // Calculate increases
+                const monthlyIncrease = projectedRevenue - currentRevenue;
+                const annualIncrease = monthlyIncrease * 12;
+
+                // Update UI
+                this.displayResults({
+                    currentRevenue,
+                    projectedRevenue,
+                    monthlyIncrease,
+                    annualIncrease
+                });
+
+                // Analytics tracking
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'roi_calculation', {
+                        'event_category': 'Calculator',
+                        'monthly_leads': monthlyLeads,
+                        'business_type': businessType,
+                        'projected_increase': monthlyIncrease
+                    });
+                }
+            }
+
+            displayResults(results) {
+                // Show results container
+                const resultsContainer = document.getElementById('calculatorResults');
+                resultsContainer.style.display = 'block';
+
+                // Update values with animations
+                this.animateValue('currentRevenue', 0, results.currentRevenue);
+                this.animateValue('projectedRevenue', 0, results.projectedRevenue);
+                this.animateValue('monthlyIncrease', 0, results.monthlyIncrease);
+                this.animateValue('annualIncrease', 0, results.annualIncrease);
+
+                // Scroll to results
+                resultsContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            animateValue(elementId, start, end) {
+                const element = document.getElementById(elementId);
+                const duration = 1500;
+                const startTime = Date.now();
+
+                const animate = () => {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing function
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    
+                    const currentValue = Math.round(start + (end - start) * easeProgress);
+                    element.textContent = '$' + currentValue.toLocaleString();
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                };
+
+                animate();
+            }
+        }
+
+        // AI Call Me Functionality
+        class AICallSystem {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                const callBtn = document.getElementById('requestAICall');
+                if (callBtn) {
+                    callBtn.addEventListener('click', () => this.requestAICall());
+                }
+            }
+
+            async requestAICall() {
+                const name = document.getElementById('callName').value.trim();
+                const phone = document.getElementById('callPhone').value.trim();
+                const business = document.getElementById('callBusiness').value;
+                const question = document.getElementById('callQuestion').value.trim();
+
+                // Validation
+                if (!name || !phone) {
+                    alert('Please enter your name and phone number.');
+                    return;
+                }
+
+                // Phone validation
+                const phoneRegex = /^[\+]?[1-9][\d\-\(\)\s]{7,15}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert('Please enter a valid phone number.');
+                    return;
+                }
+
+                // Disable button and show loading
+                const callBtn = document.getElementById('requestAICall');
+                const originalText = callBtn.textContent;
+                callBtn.disabled = true;
+                callBtn.textContent = 'Initiating AI Call...';
+
+                try {
+                    // Simulate API call for AI phone system
+                    await this.simulateAICallRequest({
+                        name,
+                        phone,
+                        business,
+                        question
+                    });
+
+                    // Success feedback
+                    callBtn.textContent = 'AI Call Initiated! ✓';
+                    callBtn.style.background = 'var(--success)';
+                    
+                    // Show success message
+                    this.showSuccessMessage('Your AI call will arrive within 60 seconds!');
+
+                    // Analytics tracking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'ai_call_request', {
+                            'event_category': 'Lead Generation',
+                            'business_type': business,
+                            'has_question': question.length > 0
+                        });
+                    }
+
+                } catch (error) {
+                    console.error('AI Call request failed:', error);
+                    callBtn.disabled = false;
+                    callBtn.textContent = originalText;
+                    alert('Sorry, there was an issue. Please try again or call us directly at (678) 855-8576');
+                }
+            }
+
+            async simulateAICallRequest(data) {
+                // Simulate API call delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // In production, this would call your AI phone system API
+                console.log('AI Call Request:', data);
+                return { success: true, callId: 'ai_call_' + Date.now() };
+            }
+
+            showSuccessMessage(message) {
+                const successDiv = document.createElement('div');
+                successDiv.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: var(--success);
+                    color: white;
+                    padding: 20px 40px;
+                    border-radius: 12px;
+                    font-size: 18px;
+                    font-weight: 600;
+                    z-index: 10000;
+                    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
+                    animation: successPulse 0.5s ease-out;
+                `;
+                successDiv.textContent = message;
+
+                document.body.appendChild(successDiv);
+
+                setTimeout(() => {
+                    successDiv.remove();
+                }, 4000);
+            }
+        }
+
+        // Initialize new functionality
+        const roiCalculator = new ROICalculator();
+        const aiCallSystem = new AICallSystem();
+
+        // Modal Management System
+        class ModalManager {
+            constructor() {
+                this.initCalculatorModal();
+                this.initAICallModal();
+            }
+
+            initCalculatorModal() {
+                const calculatorOverlay = document.getElementById('calculatorOverlay');
+                const calculatorClose = document.getElementById('calculatorClose');
+                
+                // Calculator triggers
+                document.querySelectorAll('.calculator-trigger').forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.openModal(calculatorOverlay);
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'calculator_modal_open', {
+                                'event_category': 'Modal Interaction',
+                                'event_label': 'Calculator Open'
+                            });
+                        }
+                    });
+                });
+
+                // Close handlers
+                if (calculatorClose) {
+                    calculatorClose.addEventListener('click', () => {
+                        this.closeModal(calculatorOverlay);
+                    });
+                }
+
+                if (calculatorOverlay) {
+                    calculatorOverlay.addEventListener('click', (e) => {
+                        if (e.target === calculatorOverlay) {
+                            this.closeModal(calculatorOverlay);
+                        }
+                    });
+                }
+            }
+
+            initAICallModal() {
+                const aiCallOverlay = document.getElementById('aiCallOverlay');
+                const aiCallClose = document.getElementById('aiCallClose');
+                
+                // AI Call triggers
+                document.querySelectorAll('.ai-call-trigger').forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.openModal(aiCallOverlay);
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'ai_call_modal_open', {
+                                'event_category': 'Modal Interaction',
+                                'event_label': 'AI Call Open'
+                            });
+                        }
+                    });
+                });
+
+                // Close handlers
+                if (aiCallClose) {
+                    aiCallClose.addEventListener('click', () => {
+                        this.closeModal(aiCallOverlay);
+                    });
+                }
+
+                if (aiCallOverlay) {
+                    aiCallOverlay.addEventListener('click', (e) => {
+                        if (e.target === aiCallOverlay) {
+                            this.closeModal(aiCallOverlay);
+                        }
+                    });
+                }
+            }
+
+            openModal(modal) {
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            closeModal(modal) {
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        }
+
+        // Initialize modal management
+        const modalManager = new ModalManager();
+
+        // Keyboard support for modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const activeModals = [
+                    document.getElementById('calculatorOverlay'),
+                    document.getElementById('aiCallOverlay'),
+                    document.getElementById('quizOverlay')
+                ].filter(modal => modal && modal.classList.contains('active'));
+
+                activeModals.forEach(modal => {
+                    if (modal.id === 'calculatorOverlay' || modal.id === 'aiCallOverlay') {
+                        modalManager.closeModal(modal);
+                    } else {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.getElementById('mobileNavToggle');
+            const floatingNav = document.getElementById('floatingNav');
+            
+            if (mobileToggle && floatingNav) {
+                mobileToggle.addEventListener('click', () => {
+                    floatingNav.classList.toggle('active');
+                });
+            }
+        });
+
+        // Smart Navigation & CTA Management
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update primary CTAs to open quiz
+            const primaryCTAs = document.querySelectorAll('.btn-primary');
+            primaryCTAs.forEach(btn => {
+                if (btn.textContent.includes('Get My Free AI Roadmap') || 
+                    btn.textContent.includes('Start Your Free Analysis')) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        quizInstance.openQuiz();
+                    });
+                }
+            });
+
+            // Handle quiz trigger navigation links
+            document.querySelectorAll('.quiz-trigger').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    quizInstance.openQuiz();
+                });
+            });
+
+            // Smart anchor navigation with smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href === '#' || href.includes('quiz-trigger')) return;
+                    
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId) || 
+                                        document.querySelector(`.${targetId}`) ||
+                                        document.querySelector(`[data-section="${targetId}"]`);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                        
+                        // Track anchor navigation
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'anchor_navigation', {
+                                'event_category': 'engagement',
+                                'event_label': targetId
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Update nav CTA button to open quiz
+            const navCTA = document.querySelector('.nav-cta');
+            if (navCTA) {
+                navCTA.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    quizInstance.openQuiz();
+                });
+            }
+
+            // Enhanced video section anchor navigation
+            const videoNavLinks = document.querySelectorAll('a[href*="video"]');
+            videoNavLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const videoSection = document.querySelector('.video-section');
+                    if (videoSection) {
+                        videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
