@@ -62,14 +62,50 @@
         .nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 24px;
+            padding: 16px 24px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             position: relative;
         }
 
-        /* Remove logo styles - will be repositioned later */
+        /* Logo Styles */
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-white);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-link:hover {
+            opacity: 0.9;
+        }
+
+        .header-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #0088CC, #00AA66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                display: none;
+            }
+            .header-logo {
+                height: 32px;
+            }
+        }
 
         /* Floating Action Navigation */
         .floating-nav {
@@ -974,6 +1010,28 @@
             border-top: 1px solid var(--border-dark);
         }
 
+        .footer-logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .footer-logo-section img {
+            height: 50px;
+            width: auto;
+            margin-bottom: 12px;
+        }
+
+        .footer-logo-section .footer-brand-name {
+            font-size: 18px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #0088CC, #00AA66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -1717,6 +1775,10 @@
     <!-- Expert Header Navigation -->
     <header class="header">
         <nav class="nav">
+            <a href="/" class="logo-link">
+                <img src="/images/logo-header.png" alt="Simple Acceleration Systems" class="header-logo">
+                <span class="logo-text">Simple Acceleration Systems</span>
+            </a>
             <div class="floating-nav" id="floatingNav">
                 <a href="#" class="nav-item calculator-trigger">ROI Calculator</a>
                 <a href="#" class="nav-item ai-call-trigger">AI Call Me</a>
@@ -2132,6 +2194,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-logo-section">
+                <img src="/images/logo-footer.png" alt="Simple Acceleration Systems">
+                <div class="footer-brand-name">Simple Acceleration Systems</div>
+            </div>
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Solutions</h4>
@@ -2167,8 +2233,8 @@
             <div class="footer-bottom">
                 © 2025 Simple Acceleration Systems. All rights reserved. • Transforming businesses with AI automation since 2024.
                 <div style="margin-top: 12px;">
-                    <a href="https://goldmineaisystem.pro/privacy" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
-                    <a href="https://goldmineaisystem.pro/terms" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Terms of Service</a>
+                    <a href="/privacy.html" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
+                    <a href="/terms.html" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Terms of Service</a>
                 </div>
             </div>
         </div>

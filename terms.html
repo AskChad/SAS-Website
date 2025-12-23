@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Simple Acceleration Systems</title>
+    <meta name="description" content="Terms of Service for Simple Acceleration Systems - Review the legal terms governing use of our website and services.">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #111116;
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+            --accent-cyan: #00d4ff;
+            --accent-green: #00AA66;
+            --border-dark: rgba(255, 255, 255, 0.08);
+            --gradient-main: linear-gradient(135deg, #0088CC, #00AA66);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 16px 0;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .header-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: 600;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .legal-content {
+            padding: 140px 0 80px;
+        }
+
+        .legal-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 16px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .effective-date {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .legal-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .legal-content p {
+            margin-bottom: 16px;
+        }
+
+        .legal-content ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .legal-content li {
+            margin-bottom: 8px;
+        }
+
+        .legal-content a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .legal-content a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .highlight-box.warning {
+            border-color: rgba(255, 200, 0, 0.3);
+            background: rgba(255, 200, 0, 0.05);
+        }
+
+        .contact-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 40px;
+        }
+
+        .contact-box h3 {
+            color: var(--text-white);
+            margin-bottom: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-dark);
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-white);
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                display: none;
+            }
+            .legal-content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo-link">
+                <img src="/images/logo-header.png" alt="Simple Acceleration Systems" class="header-logo">
+                <span class="logo-text">Simple Acceleration Systems</span>
+            </a>
+            <a href="/" class="back-link">Back to Home</a>
+        </nav>
+    </header>
+
+    <main class="legal-content">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p class="effective-date">Effective Date: December 2025</p>
+
+            <p>Welcome to Simple Acceleration Systems. These Terms of Service ("Terms") govern your access to and use of our website, products, and services. By accessing or using our services, you agree to be bound by these Terms.</p>
+
+            <div class="highlight-box">
+                <p><strong>Important:</strong> Please read these Terms carefully before using our services. If you do not agree to these Terms, you may not access or use our services.</p>
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing our website or using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you are using our services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.</p>
+
+            <h2>2. Eligibility</h2>
+            <p>To use our services, you must:</p>
+            <ul>
+                <li>Be at least 18 years of age</li>
+                <li>Reside in the United States, Canada, or United Kingdom</li>
+                <li>Not be a competitor or using our services for competitive analysis</li>
+                <li>Have the legal capacity to enter into binding agreements</li>
+            </ul>
+
+            <h2>3. Account Registration</h2>
+            <p>When creating an account, you agree to:</p>
+            <ul>
+                <li>Provide accurate, current, and complete information</li>
+                <li>Maintain the security of your account credentials</li>
+                <li>Promptly update your information if it changes</li>
+                <li>Accept responsibility for all activities under your account</li>
+            </ul>
+            <p>We reserve the right to suspend or terminate accounts at our discretion. Report any unauthorized access immediately to <a href="mailto:support@simpleaccelerationsystems.com">support@simpleaccelerationsystems.com</a>.</p>
+
+            <h2>4. Services Description</h2>
+            <p>Simple Acceleration Systems provides AI-powered automation solutions for businesses, including but not limited to:</p>
+            <ul>
+                <li>Lead capture and management automation</li>
+                <li>AI-powered communication systems</li>
+                <li>Business process optimization tools</li>
+                <li>Customer relationship management integrations</li>
+            </ul>
+            <p>We reserve the right to modify, suspend, or discontinue any service at any time without prior notice.</p>
+
+            <h2>5. Prohibited Conduct</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use our services for any unlawful purpose</li>
+                <li>Send spam, unsolicited communications, or engage in harassment</li>
+                <li>Impersonate any person or entity</li>
+                <li>Upload or transmit viruses, malware, or malicious code</li>
+                <li>Attempt to bypass security measures or gain unauthorized access</li>
+                <li>Scrape, harvest, or collect data from our services without permission</li>
+                <li>Reverse engineer, decompile, or disassemble our software</li>
+                <li>Interfere with or disrupt our services or infrastructure</li>
+                <li>Use our services in violation of any applicable laws or regulations</li>
+            </ul>
+
+            <h2>6. Payment Terms</h2>
+            <p>For paid services:</p>
+            <ul>
+                <li>All purchases are final unless otherwise stated</li>
+                <li>Subscriptions automatically renew unless canceled</li>
+                <li>You may cancel subscriptions through your account or by contacting support</li>
+                <li>Cancellations take effect at the end of the current billing cycle</li>
+                <li>We reserve the right to change pricing with 30 days notice</li>
+            </ul>
+
+            <h2>7. Intellectual Property</h2>
+            <p>All content, trademarks, logos, and intellectual property displayed on our website and services are owned by Simple Acceleration Systems or our licensors. You receive a limited, non-exclusive, non-transferable license to use our services for your internal business purposes only.</p>
+            <p>You may not:</p>
+            <ul>
+                <li>Copy, modify, or distribute our content without permission</li>
+                <li>Use our trademarks without written consent</li>
+                <li>Create derivative works based on our services</li>
+                <li>Sublicense or resell access to our services</li>
+            </ul>
+
+            <h2>8. Disclaimer of Warranties</h2>
+            <div class="highlight-box warning">
+                <p><strong>THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED.</strong></p>
+                <p>We disclaim all warranties, including but not limited to merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that our services will be uninterrupted, error-free, or secure.</p>
+            </div>
+
+            <h2>9. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, Simple Acceleration Systems shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities.</p>
+            <p>Our total liability for any claims arising from your use of our services shall not exceed the amount you paid us in the twelve (12) months preceding the claim.</p>
+
+            <h2>10. Indemnification</h2>
+            <p>You agree to indemnify, defend, and hold harmless Simple Acceleration Systems, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from your use of our services or violation of these Terms.</p>
+
+            <h2>11. Dispute Resolution</h2>
+            <p><strong>Governing Law:</strong> These Terms are governed by the laws of the State of Georgia, without regard to conflict of law principles.</p>
+            <p><strong>Arbitration:</strong> Any disputes arising from these Terms or your use of our services shall be resolved through binding arbitration in Cumming, Georgia, in accordance with the rules of the American Arbitration Association.</p>
+            <p><strong>Class Action Waiver:</strong> You agree to resolve disputes on an individual basis and waive your right to participate in class action lawsuits.</p>
+            <p><strong>Time Limitation:</strong> Any claim must be filed within one (1) year of the event giving rise to the claim, or it is permanently barred.</p>
+
+            <h2>12. DMCA and Copyright</h2>
+            <p>We respect intellectual property rights. If you believe content on our website infringes your copyright, please send a notice to <a href="mailto:support@simpleaccelerationsystems.com">support@simpleaccelerationsystems.com</a> with:</p>
+            <ul>
+                <li>Description of the copyrighted work</li>
+                <li>Location of the infringing material</li>
+                <li>Your contact information</li>
+                <li>A statement of good faith belief</li>
+                <li>Your signature (electronic or physical)</li>
+            </ul>
+
+            <h2>13. Modifications to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. Material changes will be posted on our website with an updated effective date. Your continued use of our services after changes are posted constitutes acceptance of the modified Terms.</p>
+
+            <h2>14. Severability</h2>
+            <p>If any provision of these Terms is found unenforceable, the remaining provisions shall continue in full force and effect.</p>
+
+            <h2>15. Entire Agreement</h2>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Simple Acceleration Systems regarding your use of our services.</p>
+
+            <div class="contact-box">
+                <h3>Contact Us</h3>
+                <p>If you have questions about these Terms of Service, please contact us:</p>
+                <p><strong>Simple Acceleration Systems</strong><br>
+                4415 Settingdown Circle<br>
+                Cumming, GA 30028</p>
+                <p>Email: <a href="mailto:support@simpleaccelerationsystems.com">support@simpleaccelerationsystems.com</a><br>
+                Phone: <a href="tel:6788558576">(678) 855-8576</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Simple Acceleration Systems. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <a href="/">Home</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
