@@ -2555,7 +2555,12 @@
                         <label for="callPhone">Phone Number</label>
                         <input type="tel" id="callPhone" placeholder="(555) 123-4567" required>
                     </div>
-                    
+
+                    <div class="form-group">
+                        <label for="callEmail">Email Address</label>
+                        <input type="email" id="callEmail" placeholder="you@company.com" required>
+                    </div>
+
                     <div class="form-group">
                         <label for="callBusiness">Business Type</label>
                         <select id="callBusiness">
@@ -3742,10 +3747,30 @@
             }
 
             showBookingConfirmation(bookingData) {
-                // Format date and time from the selected slot
-                const slotDate = new Date(this.selectedSlotTime);
-                const formattedDate = slotDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-                const formattedTime = slotDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+                // Format date and time - try multiple sources for the slot time
+                let formattedDate = 'Check your email for details';
+                let formattedTime = 'Check your email for details';
+
+                // Try to get date/time from bookingData.slotTime first, then this.selectedSlotTime
+                const slotTimeSource = bookingData?.slotTime || this.selectedSlotTime;
+
+                console.log('Booking confirmation - bookingData:', bookingData);
+                console.log('Booking confirmation - slotTimeSource:', slotTimeSource);
+                console.log('Booking confirmation - this.selectedSlotTime:', this.selectedSlotTime);
+
+                if (slotTimeSource) {
+                    const slotDate = new Date(slotTimeSource);
+                    // Check if the date is valid
+                    if (!isNaN(slotDate.getTime())) {
+                        formattedDate = slotDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                        formattedTime = slotDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+                        console.log('Booking confirmation - formatted successfully:', formattedDate, formattedTime);
+                    } else {
+                        console.warn('Booking confirmation - Invalid date from slotTimeSource:', slotTimeSource);
+                    }
+                } else {
+                    console.warn('Booking confirmation - No slot time source available');
+                }
 
                 document.querySelector('.quiz-container').innerHTML = `
                     <div style="max-width: 500px; margin: 0 auto; padding: 40px 20px; text-align: center;">
@@ -3926,12 +3951,20 @@
             async requestAICall() {
                 const name = document.getElementById('callName').value.trim();
                 const phone = document.getElementById('callPhone').value.trim();
+                const email = document.getElementById('callEmail').value.trim();
                 const business = document.getElementById('callBusiness').value;
                 const question = document.getElementById('callQuestion').value.trim();
 
                 // Validation
-                if (!name || !phone) {
-                    alert('Please enter your name and phone number.');
+                if (!name || !phone || !email) {
+                    alert('Please enter your name, phone number, and email address.');
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
                     return;
                 }
 
@@ -3949,27 +3982,41 @@
                 callBtn.textContent = 'Initiating AI Call...';
 
                 try {
-                    // Simulate API call for AI phone system
-                    await this.simulateAICallRequest({
-                        name,
-                        phone,
-                        business,
-                        question
+                    // Call the actual GHL API to create contact
+                    const response = await fetch('/api/ghl-ai-call', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name,
+                            phone,
+                            email,
+                            business,
+                            question
+                        })
                     });
 
+                    const result = await response.json();
+
+                    if (!result.success) {
+                        throw new Error(result.error || 'Failed to submit request');
+                    }
+
+                    console.log('✅ AI Call contact created in GHL:', result.contactId);
+
                     // Success feedback
-                    callBtn.textContent = 'AI Call Initiated! ✓';
+                    callBtn.textContent = 'Request Received! ✓';
                     callBtn.style.background = 'var(--success)';
-                    
+
                     // Show success message
-                    this.showSuccessMessage('Your AI call will arrive within 60 seconds!');
+                    this.showSuccessMessage('Your information has been received! We\'ll be in touch shortly.');
 
                     // Analytics tracking
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'ai_call_request', {
                             'event_category': 'Lead Generation',
                             'business_type': business,
-                            'has_question': question.length > 0
+                            'has_question': question.length > 0,
+                            'ghl_success': true
                         });
                     }
 
@@ -3979,15 +4026,6 @@
                     callBtn.textContent = originalText;
                     alert('Sorry, there was an issue. Please try again or call us directly at (678) 855-8576');
                 }
-            }
-
-            async simulateAICallRequest(data) {
-                // Simulate API call delay
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // In production, this would call your AI phone system API
-                console.log('AI Call Request:', data);
-                return { success: true, callId: 'ai_call_' + Date.now() };
             }
 
             showSuccessMessage(message) {

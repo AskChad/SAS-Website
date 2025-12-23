@@ -9,6 +9,7 @@
  * @param {Object} req.body - Request payload
  * @param {string} req.body.name - Contact name (required)
  * @param {string} req.body.phone - Contact phone (required)
+ * @param {string} req.body.email - Contact email (required)
  * @param {string} req.body.business - Business type (optional)
  * @param {string} req.body.website - Website URL (optional)
  * @param {string} req.body.question - User question (optional)
@@ -38,13 +39,22 @@ export default async function handler(req, res) {
 
   try {
     // Extract data from request body
-    const { name, phone, business, website, question } = req.body;
+    const { name, phone, email, business, website, question } = req.body;
 
     // Validation - ensure required fields are present
-    if (!name || !phone) {
+    if (!name || !phone || !email) {
       return res.status(400).json({
         success: false,
-        error: 'Missing required fields: name and phone are required'
+        error: 'Missing required fields: name, phone, and email are required'
+      });
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid email format'
       });
     }
 
@@ -119,6 +129,7 @@ export default async function handler(req, res) {
       locationId: process.env.GHL_LOCATION_ID,
       firstName: firstName,
       lastName: lastName,
+      email: email,
       phone: formattedPhone,
       ...(website && { website: website }), // Standard field, not custom
       tags: tags,
