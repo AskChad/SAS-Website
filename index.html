@@ -62,14 +62,50 @@
         .nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 24px;
+            padding: 16px 24px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             position: relative;
         }
 
-        /* Remove logo styles - will be repositioned later */
+        /* Logo Styles */
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-white);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-link:hover {
+            opacity: 0.9;
+        }
+
+        .header-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #0088CC, #00AA66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                display: none;
+            }
+            .header-logo {
+                height: 32px;
+            }
+        }
 
         /* Floating Action Navigation */
         .floating-nav {
@@ -974,6 +1010,28 @@
             border-top: 1px solid var(--border-dark);
         }
 
+        .footer-logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .footer-logo-section img {
+            height: 50px;
+            width: auto;
+            margin-bottom: 12px;
+        }
+
+        .footer-logo-section .footer-brand-name {
+            font-size: 18px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #0088CC, #00AA66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -1717,6 +1775,10 @@
     <!-- Expert Header Navigation -->
     <header class="header">
         <nav class="nav">
+            <a href="/" class="logo-link">
+                <img src="/images/logo-header.png" alt="Simple Acceleration Systems" class="header-logo">
+                <span class="logo-text">Simple Acceleration Systems</span>
+            </a>
             <div class="floating-nav" id="floatingNav">
                 <a href="#" class="nav-item calculator-trigger">ROI Calculator</a>
                 <a href="#" class="nav-item ai-call-trigger">AI Call Me</a>
@@ -2132,6 +2194,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-logo-section">
+                <img src="/images/logo-footer.png" alt="Simple Acceleration Systems">
+                <div class="footer-brand-name">Simple Acceleration Systems</div>
+            </div>
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Solutions</h4>
@@ -2167,8 +2233,8 @@
             <div class="footer-bottom">
                 © 2025 Simple Acceleration Systems. All rights reserved. • Transforming businesses with AI automation since 2024.
                 <div style="margin-top: 12px;">
-                    <a href="https://goldmineaisystem.pro/privacy" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
-                    <a href="https://goldmineaisystem.pro/terms" target="_blank" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Terms of Service</a>
+                    <a href="/privacy.html" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
+                    <a href="/terms.html" style="color: var(--text-gray); text-decoration: none; margin: 0 12px;">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -2489,7 +2555,12 @@
                         <label for="callPhone">Phone Number</label>
                         <input type="tel" id="callPhone" placeholder="(555) 123-4567" required>
                     </div>
-                    
+
+                    <div class="form-group">
+                        <label for="callEmail">Email Address</label>
+                        <input type="email" id="callEmail" placeholder="you@company.com" required>
+                    </div>
+
                     <div class="form-group">
                         <label for="callBusiness">Business Type</label>
                         <select id="callBusiness">
@@ -2504,15 +2575,10 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="callWebsite">Your Website (Optional)</label>
-                        <input type="url" id="callWebsite" placeholder="https://yourwebsite.com">
-                    </div>
-
-                    <div class="form-group">
                         <label for="callQuestion">What would you like to know? (Optional)</label>
                         <textarea id="callQuestion" placeholder="e.g. How can AI help my solar business capture more leads?"></textarea>
                     </div>
-
+                    
                     <button type="button" id="requestAICall" class="btn btn-primary">Have AI Call Me Now →</button>
                     
                     <p class="form-disclaimer">
@@ -2708,8 +2774,7 @@
                 <input type="text" class="quiz-input" id="firstName" placeholder="First Name" required>
                 <input type="email" class="quiz-input" id="email" placeholder="Email Address" required>
                 <input type="tel" class="quiz-input" id="phone" placeholder="Phone (Optional - for priority scheduling)">
-                <input type="url" class="quiz-input" id="website" placeholder="Your Website URL (Optional)">
-
+                
                 <div class="quiz-value-add">
                     🔒 Your information is 100% secure. We hate spam as much as you do.
                 </div>
@@ -3146,63 +3211,24 @@
                 };
 
                 try {
-                    // Get contact information from form
-                    const firstName = document.getElementById('firstName').value;
-                    const email = document.getElementById('email').value;
-                    const phone = document.getElementById('phone').value;
-                    const website = document.getElementById('website').value;
-
-                    // Send to GoHighLevel via serverless API
-                    console.log('Sending quiz data to GHL...');
-
-                    const ghlResponse = await fetch('/api/ghl-contact', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            firstName: firstName,
-                            email: email,
-                            phone: phone,
-                            website: website,
-                            quizData: submissionData
-                        })
-                    });
-
-                    const ghlResult = await ghlResponse.json();
-
-                    if (!ghlResult.success) {
-                        console.error('GHL API Error:', ghlResult.error);
-                        // Continue to show results even if GHL fails
-                        // This ensures user still gets their assessment
-                    } else {
-                        console.log('✅ Contact saved to GHL:', ghlResult.contactId);
-                        // Store contactId for later use (calendar booking)
-                        this.ghlContactId = ghlResult.contactId;
-                    }
-
+                    // Here you would normally send to your backend
+                    console.log('AI Assessment Results:', submissionData);
+                    
                     // Track completion
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'quiz_completed', {
                             'event_category': 'conversion',
                             'event_label': 'ai_assessment',
-                            'value': aiAnalysis.readinessScore,
-                            'ghl_success': ghlResult.success
+                            'value': aiAnalysis.readinessScore
                         });
                     }
 
                     // Show personalized results page
                     this.showAIResultsPage(aiAnalysis);
-
+                    
                 } catch (error) {
                     console.error('Quiz submission error:', error);
-
-                    // Still show results page even if API fails
-                    // User experience comes first
-                    this.showAIResultsPage(this.calculateAIReadinessAndROI());
-
-                    // Optionally notify user of issue (silent failure is often better UX)
-                    // alert('Your assessment is ready! We may follow up via phone if we couldn\'t save your contact info.');
+                    alert('There was an error generating your AI assessment. Please try again or call us directly.');
                 }
             }
 
@@ -3385,6 +3411,41 @@
                                     <h4 style="color: var(--text-white); margin-bottom: 16px; text-align: center;">Available Times</h4>
                                     <div class="time-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;" id="timeGrid"></div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Meeting Details Form -->
+                        <div id="meetingForm" style="display: none; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 30px; margin-bottom: 24px;">
+                            <h3 style="color: var(--accent-cyan); margin-bottom: 20px; text-align: center;">
+                                📝 Confirm Your Strategy Session
+                            </h3>
+                            
+                            <div style="margin-bottom: 16px;">
+                                <label style="color: var(--text-light); margin-bottom: 8px; display: block;">Meeting Type</label>
+                                <select id="meetingType" style="width: 100%; background: var(--secondary-dark); border: 1px solid var(--border-dark); border-radius: 8px; padding: 12px; color: var(--text-white);">
+                                    <option value="strategy">Strategy Session (30 min) - FREE</option>
+                                    <option value="deep-dive">Deep Dive Analysis (60 min) - FREE</option>
+                                </select>
+                            </div>
+
+                            <div style="margin-bottom: 16px;">
+                                <label style="color: var(--text-light); margin-bottom: 8px; display: block;">Preferred Communication</label>
+                                <select id="communicationType" style="width: 100%; background: var(--secondary-dark); border: 1px solid var(--border-dark); border-radius: 8px; padding: 12px; color: var(--text-white);">
+                                    <option value="phone">Phone Call</option>
+                                    <option value="zoom">Zoom Video Call</option>
+                                    <option value="teams">Microsoft Teams</option>
+                                </select>
+                            </div>
+
+                            <div style="margin-bottom: 24px;">
+                                <label style="color: var(--text-light); margin-bottom: 8px; display: block;">Additional Notes (Optional)</label>
+                                <textarea id="meetingNotes" placeholder="Any specific questions or topics you'd like to discuss?" style="width: 100%; height: 100px; background: var(--secondary-dark); border: 1px solid var(--border-dark); border-radius: 8px; padding: 12px; color: var(--text-white); resize: vertical;"></textarea>
+                            </div>
+
+                            <div style="text-align: center;">
+                                <button onclick="quizInstance.confirmBooking()" class="btn btn-primary" style="padding: 12px 32px; font-size: 16px;">
+                                    ✅ Confirm My Strategy Session
+                                </button>
                             </div>
                         </div>
 
@@ -3581,9 +3642,10 @@
             changeMonth(delta) {
                 this.currentDate.setMonth(this.currentDate.getMonth() + delta);
                 this.renderCalendar();
-
+                
                 // Hide time slots when changing month
                 document.getElementById('timeSlots').style.display = 'none';
+                document.getElementById('meetingForm').style.display = 'none';
             }
 
             async confirmBooking() {
@@ -3660,8 +3722,6 @@
 
                     if (!calendarResult.success) {
                         console.error('GHL Calendar API Error:', calendarResult.error);
-                        // Still show confirmation even if calendar API fails
-                        // Better UX than blocking the user
                         alert('Your information was saved, but there was an issue scheduling the appointment. We\'ll contact you shortly to confirm your time.');
                     } else {
                         console.log('✅ Appointment created in GHL:', calendarResult.appointmentId);
@@ -3681,17 +3741,37 @@
                     this.showBookingConfirmation(bookingData);
 
                 } catch (error) {
-                    console.error('Calendar booking error:', error);
-
-                    // Still show confirmation - user experience first
-                    this.showBookingConfirmation(bookingData);
-
-                    // Optionally notify user
-                    alert('Your information was saved! We may follow up to confirm your appointment time.');
+                    console.error('Booking Error:', error);
+                    alert('There was an issue processing your booking. Please try again or call us directly.');
                 }
             }
 
             showBookingConfirmation(bookingData) {
+                // Format date and time - try multiple sources for the slot time
+                let formattedDate = 'Check your email for details';
+                let formattedTime = 'Check your email for details';
+
+                // Try to get date/time from bookingData.slotTime first, then this.selectedSlotTime
+                const slotTimeSource = bookingData?.slotTime || this.selectedSlotTime;
+
+                console.log('Booking confirmation - bookingData:', bookingData);
+                console.log('Booking confirmation - slotTimeSource:', slotTimeSource);
+                console.log('Booking confirmation - this.selectedSlotTime:', this.selectedSlotTime);
+
+                if (slotTimeSource) {
+                    const slotDate = new Date(slotTimeSource);
+                    // Check if the date is valid
+                    if (!isNaN(slotDate.getTime())) {
+                        formattedDate = slotDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                        formattedTime = slotDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+                        console.log('Booking confirmation - formatted successfully:', formattedDate, formattedTime);
+                    } else {
+                        console.warn('Booking confirmation - Invalid date from slotTimeSource:', slotTimeSource);
+                    }
+                } else {
+                    console.warn('Booking confirmation - No slot time source available');
+                }
+
                 document.querySelector('.quiz-container').innerHTML = `
                     <div style="max-width: 500px; margin: 0 auto; padding: 40px 20px; text-align: center;">
                         <div style="margin-bottom: 30px;">
@@ -3709,10 +3789,10 @@
                         <div style="background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 16px; padding: 24px; margin-bottom: 30px; text-align: left;">
                             <h3 style="color: var(--text-white); margin-bottom: 16px;">📅 Meeting Details</h3>
                             <div style="color: var(--text-gray); font-size: 14px; line-height: 1.8;">
-                                <strong>Date:</strong> ${bookingData.date}<br>
-                                <strong>Time:</strong> ${bookingData.time}<br>
-                                <strong>Duration:</strong> 30 minutes<br>
-                                <strong>Method:</strong> Zoom Video Call
+                                <strong>Date:</strong> ${formattedDate}<br>
+                                <strong>Time:</strong> ${formattedTime}<br>
+                                <strong>Type:</strong> Strategy Session (30 min)<br>
+                                <strong>Method:</strong> Zoom Meeting<br>
                             </div>
                         </div>
 
@@ -3871,13 +3951,20 @@
             async requestAICall() {
                 const name = document.getElementById('callName').value.trim();
                 const phone = document.getElementById('callPhone').value.trim();
+                const email = document.getElementById('callEmail').value.trim();
                 const business = document.getElementById('callBusiness').value;
-                const website = document.getElementById('callWebsite').value.trim();
                 const question = document.getElementById('callQuestion').value.trim();
 
                 // Validation
-                if (!name || !phone) {
-                    alert('Please enter your name and phone number.');
+                if (!name || !phone || !email) {
+                    alert('Please enter your name, phone number, and email address.');
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
                     return;
                 }
 
@@ -3895,38 +3982,33 @@
                 callBtn.textContent = 'Initiating AI Call...';
 
                 try {
-                    // Send to GoHighLevel via AI Call API
-                    console.log('Sending AI Call request to GHL...');
-
-                    const ghlResponse = await fetch('/api/ghl-ai-call', {
+                    // Call the actual GHL API to create contact
+                    const response = await fetch('/api/ghl-ai-call', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            name: name,
-                            phone: phone,
-                            business: business,
-                            website: website,
-                            question: question
+                            name,
+                            phone,
+                            email,
+                            business,
+                            question
                         })
                     });
 
-                    const ghlResult = await ghlResponse.json();
+                    const result = await response.json();
 
-                    if (!ghlResult.success) {
-                        console.error('GHL API Error:', ghlResult.error);
-                        throw new Error(ghlResult.error || 'Failed to create contact');
+                    if (!result.success) {
+                        throw new Error(result.error || 'Failed to submit request');
                     }
 
-                    console.log('✅ AI Call contact created in GHL:', ghlResult.contactId);
+                    console.log('✅ AI Call contact created in GHL:', result.contactId);
 
                     // Success feedback
-                    callBtn.textContent = 'AI Call Initiated! ✓';
+                    callBtn.textContent = 'Request Received! ✓';
                     callBtn.style.background = 'var(--success)';
 
                     // Show success message
-                    this.showSuccessMessage('Your AI call will arrive within 60 seconds!');
+                    this.showSuccessMessage('Your information has been received! We\'ll be in touch shortly.');
 
                     // Analytics tracking
                     if (typeof gtag !== 'undefined') {
@@ -3944,15 +4026,6 @@
                     callBtn.textContent = originalText;
                     alert('Sorry, there was an issue. Please try again or call us directly at (678) 855-8576');
                 }
-            }
-
-            async simulateAICallRequest(data) {
-                // Simulate API call delay
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // In production, this would call your AI phone system API
-                console.log('AI Call Request:', data);
-                return { success: true, callId: 'ai_call_' + Date.now() };
             }
 
             showSuccessMessage(message) {
@@ -4187,4 +4260,4 @@
         });
     </script>
 </body>
-</html>
+</html><\!-- Deployment trigger: 2025-12-24 12:35:10 -->
